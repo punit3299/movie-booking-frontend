@@ -34,4 +34,8 @@ export class AdminService {
   getTopThreeMovies(){
     return this.http.get(this.url + "/topThreeMovies");
   }
+
+  getGenderwiseCount(){
+    return this.http.get(this.url+"/genderwiseCount");
+  }
 }

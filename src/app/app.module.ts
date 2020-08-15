@@ -13,6 +13,7 @@ import { AdminComponent } from './admin/admin.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { HttpClientModule} from '@angular/common/http';
+import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule} from '@angular/common/http';
     AdminComponent,
     CustomerHomeComponent,
     AdminHomeComponent,
-    HomeComponent
+    HomeComponent,
+    AdminStatsComponent
   ],
   imports: [
     BrowserModule,

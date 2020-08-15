@@ -6,6 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
+import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminComponent,
     children: [
-      { path: 'admin-home', component: AdminHomeComponent },
+      { path: 'home', component: AdminHomeComponent },
+      { path: 'stats', component: AdminStatsComponent },
       { path: '**', component: AdminHomeComponent },
     ]
   },
