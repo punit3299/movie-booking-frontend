@@ -7,13 +7,13 @@
     height: 1px;
     background-color: #fff;
 }
-#my-bookings{
-    color: #FF66F5;
-    border: 1px solid #FF66F5;
+#my-balance{
+    color: yellow;
+    border: 1px solid yellow;
 }
-#my-bookings:hover{
-    color: white;
-    background-color: #FF66F5;
+#my-balance:hover{
+    color: black;
+    background-color: yellow;
 }
 .navbar .navbar-toggler-icon{
     background-image: url('src/assets/images/toggle.png');

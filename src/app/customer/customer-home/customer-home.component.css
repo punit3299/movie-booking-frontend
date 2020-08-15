@@ -11,3 +11,37 @@
     background-color: #FF66F5;
     border-color: rgba(255, 255, 255, 1);
 }
+.book-tickets:hover{
+    background-color: white;
+}
+#now-playing{
+    background-image: linear-gradient(to right,rgba(55,2,20,1),rgba(12,59,87,1)); 
+}
+.solid{
+    height: 1px;
+    background-color: #fff;
+}
+.card-deck{
+    height: 500px;
+}
+.card-deck .card:nth-child(1){
+    background-image: url('src/assets/images/nowPlaying1.jpg');
+}
+.card-deck .card:nth-child(2){
+    background-image: url('src/assets/images/nowPlaying2.jpg');
+}
+.card-deck .card:nth-child(3){
+    background-image: url('src/assets/images/nowPlaying3.jpg');
+}
+.card-deck .card:nth-child(4){
+    background-image: url('src/assets/images/nowPlaying4.jpg');
+}
+#coming-soon .genre{
+    background-color: black;
+    color: #FF66F5;
+    border-radius: 10px;
+}
+#coming-soon .movie-name{
+    font-size: 40px;
+    font-family: Mistral;
+}
