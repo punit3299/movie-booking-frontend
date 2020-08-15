@@ -1,0 +1,13 @@
+#home{
+    background-image: url('src/assets/images/background.jpg');
+    background-repeat: no-repeat;
+}
+#intro-heading{
+    font-family: Mistral;
+    
+    font-size: 90px;
+}
+.book-tickets{
+    background-color: #FF66F5;
+    border-color: rgba(255, 255, 255, 1);
+}
