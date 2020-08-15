@@ -1,3 +1,138 @@
+<h3 class="text-center mt-3"><i class="fas fa-home"></i>&nbsp; Dashboard</h3>
+<hr>
+<section class="pt-1">
+    <div class="row container-fluid pt-3">
 
-<p>admin-home works</p>
+        <!-- Today revenue card -->
+        <div class="col-lg-3 col-md-3 col-6" style="cursor: pointer;">
+            <div class="card-counter success">
+                <i class="fas fa-money-bill-wave"></i>
+                <span class="count-numbers"><a routerLink="/admin/stats" class="text-white"
+                        style="text-decoration: none;">{{todayRevenue|currency:'INR'}}</a></span>
+                <span class="count-name">Today's Revenue : </span>
+            </div>
+        </div>  
 
+        <!-- Today products sold card -->
+        <div class="col-lg-3 col-md-3 col-6" style="cursor: pointer;">
+            <div class="card-counter danger">
+                <i class="fa fa-ticket"></i>
+                <span class="count-numbers"><a routerLink="/admin/stats" class="text-white"
+                        style="text-decoration: none;">{{todayBookingCount}}</a></span>
+                <span class="count-name">Today's Booking : </span>
+            </div>
+        </div>
+
+        <!-- active customers card -->
+        <div class="col-lg-3 col-md-3 col-6" style="cursor: pointer;">
+            <div class="card-counter primary">
+                <i class="fas fa-user-friends"></i>
+                <span class="count-numbers"><a routerLink="/admin/stats" class="text-white"
+                        style="text-decoration: none;">{{customersCount}}</a></span>
+                <span class="count-name"> Active Customers : </span>
+            </div>
+        </div>
+
+        <!-- active merchants card -->
+        <div class="col-lg-3 col-md-3 col-6" style="cursor: pointer;">
+            <div class="card-counter info">
+                <i class="fa fa-film" aria-hidden="true"></i>
+                <span class="count-numbers"><a routerLink="/admin/stats" class="text-white"
+                        style="text-decoration: none;">{{theatresCount}}</a></span>
+                <span class="count-name">Active Theatres : </span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<br>
+<hr>
+<div class="row container-fluid mt-3">
+
+    <!-- Top Trending Products table-->
+    <div class="col-lg-6 mt-2" style="line-height: 1.5">
+        <h5 class="text-center pt-3"><i class="fas fa-chart-line" style="color:#66bb6a;"></i> &nbsp;Most
+            Rated Theatres</h5>
+        <table class="table table-striped table-hover border mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Manager</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of topThreeTheatres;let i=index">
+                    <td>{{i+1}}</td>
+                    <td>
+                        <a href="" (click)="getProductById(t.productId)" data-toggle="modal"
+                            data-target="#productModal">
+                            {{t.theatreName}}
+                        </a>
+                    </td>
+                    <td>{{t.managerName}}</td>
+                    <td>{{t.theatreRating}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Top Rated Merchants table -->
+    <div class="col-lg-6 mt-2 ">
+        <h5 class="text-center pt-3"><i class="fas fa-chart-line" style="color:#66bb6a;"></i> &nbsp;Top Trending
+            Movies</h5>
+        <table class="table table-striped table-hover border mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of topThreeMovies;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{m.movieName}}</td>
+                    <td>{{m.movieGenre}}</td>
+                    <td>{{m.movieRating}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Recent Customer Orders table -->
+<div class="row container-fluid mt-2">
+    <div class="col-lg-12 mt-2">
+        <h5 class="text-center pt-3"><i class="fas fa-list-ul"></i> &nbsp;Recent Booked Seats</h5>
+        <table class="table table-striped table-hover border mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Booking Id</th>
+                    <th scope="col">Booking Date</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Theatre</th>
+                    <th scope="col">Movie</th>
+                    <th scope="col">Screen</th>
+                    <th scope="col">Seat</th>
+                    <th scope="col">Booking Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of recentOrders;let i=index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{r.orderId}}</td>
+                    <td>{{r.customer.username}}</td>
+                    <td>{{r.product.productName}}</td>
+                    <td>{{r.product.merchant.username}}</td>
+                    <td>{{r.orderDate|date:'medium'}}</td>
+                    <td>{{r.orderAmount|currency:'INR'}}</td>
+                    <td>{{r.orderStatus}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

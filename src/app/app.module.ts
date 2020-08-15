@@ -12,6 +12,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { AdminComponent } from './admin/admin.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
