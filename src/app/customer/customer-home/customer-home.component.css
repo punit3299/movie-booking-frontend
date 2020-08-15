@@ -3,7 +3,8 @@
     background-repeat: no-repeat;
 }
 #intro-heading{
-    font: normal normal normal 30px/1.4em belinda-w00-regular,script;
+    font-family: Mistral;
+    
     font-size: 90px;
 }
 .book-tickets{
