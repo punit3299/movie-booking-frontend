@@ -135,16 +135,39 @@
 
 @media screen and (max-width:420px){
     *{
-        padding: 0%;
-        margin: 0%;
+        padding: 0px;
+        margin: 0px;
     }
     #home{
         width: 100%;
+        padding: 0px 20px;
+        margin: 0px;
     }
     #intro-heading{
         font-size: 45px;
     }
     #intro-description{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    #how-it-works{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .underline{
+        margin-left: 50px;
+    }
+    .ticket-prices{
+        width: 100%;
+    }
+    .triangle{
+        display: none;
+    }
+    .about p{
         width: 100%;
     }
     
