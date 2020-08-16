@@ -27,15 +27,27 @@ export class AdminService {
     return this.http.get(this.url + "/countOfTheatres");
   }
 
-  getTopThreeTheatres(){
+  getTopThreeTheatres() {
     return this.http.get(this.url + "/topThreeTheatres");
   }
 
-  getTopThreeMovies(){
+  getTopThreeMovies() {
     return this.http.get(this.url + "/topThreeMovies");
   }
 
-  getGenderwiseCount(){
-    return this.http.get(this.url+"/genderwiseCount");
+  getGenderwiseCount() {
+    return this.http.get(this.url + "/genderwiseCount");
+  }
+
+  getGenrewiseMoviesCount() {
+    return this.http.get(this.url + "/genrewiseMoviesCount")
+  }
+
+  getRecentRevenues() {
+    return this.http.get(this.url + "/recentRevenues");
+  }
+
+  getRecentBookingsCount() {
+    return this.http.get(this.url + "/recentBookingsCount");
   }
 }

@@ -13,9 +13,10 @@ export class AdminStatsComponent implements OnInit {
 
   chart = [];
 
-  date=[];
-  genres = ['Action', 'Adventure', 'Comedy', 'Romance', 'Horror']
-  genrewiseMovies = [3, 6, 2, 3, 1];
+  date = [];
+  genres = [];
+  genrewiseMoviesCount = [];
+  genrewiseMoviesCountList;
   genderwiseCount;
 
   constructor(private adminService: AdminService) {
@@ -32,52 +33,67 @@ export class AdminStatsComponent implements OnInit {
 
     //revenue in last 7 days chart
 
-    this.chart = new Chart('revenueChart', {
-      type: 'line',
-      data: {
-        labels: this.date,
-        datasets: [
-          {
-            label: 'Total Revenue (in INR) - Last 7 Days',
-            backgroundColor: '#66bb6a',
-            borderColor: '#66bb6a',
-            data: [2000,1000,1500,4000,3000,4200,5000],
-            fill: false,
-          }
-        ]
-      }
+    this.adminService.getRecentRevenues().subscribe(data => {
+      console.log(data);
+      this.chart = new Chart('revenueChart', {
+        type: 'line',
+        data: {
+          labels: this.date,
+          datasets: [
+            {
+              label: 'Total Revenue (in INR) - Last 7 Days',
+              backgroundColor: '#66bb6a',
+              borderColor: '#66bb6a',
+              data: [2000, 1000, 1500, 4000, 3000, 4200, 5000],
+              fill: false,
+            }
+          ]
+        }
+      })
     })
 
     //bookings in last 7 days chart
 
-    this.chart = new Chart('bookingsChart', {
-      type: 'bar',
-      data: {
-        labels: this.date,
-        datasets: [
-          {
-            label: 'No of Orders - Last 7 Days',
-            backgroundColor: '#007bff',
-            borderColor: 'green',
-            data: [4,2,5,7,4,6,3],
-            fill: false,
-          }
-        ]
-      }
+    this.adminService.getRecentBookingsCount().subscribe(data => {
+      console.log(data);
+
+      this.chart = new Chart('bookingsChart', {
+        type: 'bar',
+        data: {
+          labels: this.date,
+          datasets: [
+            {
+              label: 'No of Orders - Last 7 Days',
+              backgroundColor: '#007bff',
+              borderColor: 'green',
+              data: [4, 2, 5, 7, 4, 6, 3],
+              fill: false,
+            }
+          ]
+        }
+      })
     })
 
     //genre chart
 
+    this.adminService.getGenrewiseMoviesCount().subscribe(data => {
+      this.genrewiseMoviesCountList = data;
+      this.genrewiseMoviesCountList.filter(m => this.genres.push(m.genre));
+      this.genrewiseMoviesCountList.filter(m => this.genrewiseMoviesCount.push(m.count));
+      console.log(this.genres)
+      console.log(this.genrewiseMoviesCount)
+    })
+
     this.chart = new Chart('genreChart', {
       type: 'pie',
       data: {
-        labels: this.genres,
+        labels: ['Action', 'Adventure', 'Comedy', 'Horror', 'Romance', 'Sci-fi', 'Animation'],
         datasets: [
           {
             label: 'Category Wise Orders',
-            backgroundColor: ['#878BB6', '#4ACAB4', '#FF8153', '#FFEA88'],
-            borderColor: ['#878BB6', '#4ACAB4', '#FF8153', '#FFEA88'],
-            data: this.genrewiseMovies,
+            backgroundColor: ['#878BB6', '#4ACAB4', '#FF8153', '#FFEA88', '#9A4F94', '#172037', '#336DFF'],
+            borderColor: ['#878BB6', '#4ACAB4', '#FF8153', '#FFEA88', '#9A4F94', '#172037 ', '#336DFF'],
+            data: [5, 2, 6, 2, 4, 7, 8, 4],
             fill: true,
           }
         ]
