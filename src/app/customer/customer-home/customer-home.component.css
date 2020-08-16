@@ -4,8 +4,10 @@
 }
 #intro-heading{
     font-family: Mistral;
-    
     font-size: 90px;
+}
+#intro-description{
+    width: 25%;
 }
 .book-tickets{
     background-color: #FF66F5;
@@ -24,16 +26,16 @@
 .movies{
     height: 500px;
 }
-.movies .card:nth-child(1){
+.movies .h-100:nth-child(1){
     background-image: url('src/assets/images/nowPlaying1.jpg');
 }
-.movies .card:nth-child(2){
+.movies .h-100:nth-child(2){
     background-image: url('src/assets/images/nowPlaying2.jpg');
 }
-.movies .card:nth-child(3){
+.movies .h-100:nth-child(3){
     background-image: url('src/assets/images/nowPlaying3.jpg');
 }
-.movies .card:nth-child(4){
+.movies .h-100:nth-child(4){
     background-image: url('src/assets/images/nowPlaying4.jpg');
 }
 #coming-soon .genre{
@@ -85,6 +87,7 @@
       border: 2px dashed black;
   }
   .ticket-prices{
+      width: 50%;
       margin: auto;
   }
   .ticket-prices h1,h4{
@@ -97,6 +100,9 @@
   .ticket-prices h1{
       font-size: 75px;
       font-weight: 700;
+  }
+ .d-flex{
+      flex-wrap: wrap;
   }
   .snacks{
     background-color: rgba(55,67,205,1); 
@@ -120,8 +126,64 @@
 	border-top: 51px solid #FF66F5;
 }
 .about p{
+    width: 25%;
     margin: auto;
 }
 .about h1{
     font-family: Mistral;
+}
+
+@media screen and (max-width:420px){
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    #home{
+        width: 100%;
+    }
+    #intro-heading{
+        font-size: 45px;
+    }
+    #intro-description{
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width:321px){
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    #home{
+        width: 100%;
+        padding: 0px 20px;
+        margin: 0px;
+    }
+    #intro-heading{
+        font-size: 45px;
+    }
+    #intro-description{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    #how-it-works{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .underline{
+        margin-left: 50px;
+    }
+    .ticket-prices{
+        width: 100%;
+    }
+    .triangle{
+        display: none;
+    }
+    .about p{
+        width: 100%;
+    }
 }
