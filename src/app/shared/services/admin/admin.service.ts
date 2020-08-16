@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../../models/customer.model';
+import { Booking } from '../../models/booking.model';
 
 @Injectable({
   providedIn: 'root'
@@ -74,5 +75,17 @@ export class AdminService {
   getAllCustomers()
   {
     return this.http.get<Customer[]>(this.url+"/customers")
+  }
+
+  getAllBookings(){
+    return this.http.get<Booking[]>(this.url+"/bookings");
+  }
+
+  getRecentThreeBookings(){
+    return this.http.get<Booking[]>(this.url+"/recentThreeBookings");
+  }
+
+  deleteBookingById(bookingId){
+    return this.http.delete(this.url+"/deleteBooking/"+bookingId);
   }
 }

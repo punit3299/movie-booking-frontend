@@ -14,6 +14,7 @@ export class AdminHomeComponent implements OnInit {
   theatresCount;
   topThreeTheatres;
   topThreeMovies;
+  recentThreeBookings;
 
   constructor(private adminService: AdminService) { }
 
@@ -41,6 +42,11 @@ export class AdminHomeComponent implements OnInit {
 
     this.adminService.getTopThreeMovies().subscribe(data=>{
       this.topThreeMovies=data;
+    })
+
+    this.adminService.getRecentThreeBookings().subscribe(data=>{
+      this.recentThreeBookings=data;
+      console.log(data);
     })
   }
 
