@@ -14,7 +14,10 @@ import { CustomerHomeComponent } from './customer/customer-home/customer-home.co
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { HttpClientModule} from '@angular/common/http';
 import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
-
+import { ScreenComponent } from './admin/screen/screen.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
+import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,12 +30,17 @@ import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
     CustomerHomeComponent,
     AdminHomeComponent,
     HomeComponent,
-    AdminStatsComponent
+    AdminStatsComponent,
+    ScreenComponent,
+    ViewCustomersComponent,
+    SearchCustomerPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
