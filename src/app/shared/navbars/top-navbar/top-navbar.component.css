@@ -44,3 +44,19 @@ a{
     color: #FF66F5;
     font-size: 20px;
 }
+.modal-title{
+    font-family: Mistral;
+    font-size: 40px;
+    color: #FF66F5;
+}
+.modal-content{
+    background-color: black;
+    border: 1px solid white;
+}
+tr:hover{
+    cursor: pointer;
+    color: #FF66F5;
+}
+.close{
+    color: white;
+}

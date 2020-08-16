@@ -4,8 +4,10 @@
 }
 #intro-heading{
     font-family: Mistral;
-    
     font-size: 90px;
+}
+#intro-description{
+    width: 25%;
 }
 .book-tickets{
     background-color: #FF66F5;
@@ -21,19 +23,19 @@
     height: 1px;
     background-color: #fff;
 }
-.card-deck{
+.movies{
     height: 500px;
 }
-.card-deck .card:nth-child(1){
+.movies .h-100:nth-child(1){
     background-image: url('src/assets/images/nowPlaying1.jpg');
 }
-.card-deck .card:nth-child(2){
+.movies .h-100:nth-child(2){
     background-image: url('src/assets/images/nowPlaying2.jpg');
 }
-.card-deck .card:nth-child(3){
+.movies .h-100:nth-child(3){
     background-image: url('src/assets/images/nowPlaying3.jpg');
 }
-.card-deck .card:nth-child(4){
+.movies .h-100:nth-child(4){
     background-image: url('src/assets/images/nowPlaying4.jpg');
 }
 #coming-soon .genre{
@@ -44,4 +46,170 @@
 #coming-soon .movie-name{
     font-size: 40px;
     font-family: Mistral;
+}
+#how-it-works{
+    background-color: #20303c;
+}
+.card{
+    border: 0px;
+}
+.card-body h1{
+    font-family: Mistral;
+    color: #FF66F5;
+}
+.card-body h2{
+    font-family: Mistral;
+    font-size: 50px;
+}
+.underline {
+    border: 2px solid #FF66F5;
+    margin-top: 30px;
+    display: block;
+    width: 100px;
+    position: relative;
+  }
+  .underline:after {
+    content:url('src/assets/images/pink.jpg');
+    display:block;
+    position:absolute;
+    left:50%;
+    height:20px;
+    width:20px;
+    margin:-10px 0 0 -10px;
+    border-radius:50px;
+    overflow:hidden;
+    box-shadow: 0 0 0 1px #eef, 0 0 5px;
+  }
+  .text-dark{
+      background-color: #FF66F5;
+  }
+  .tickets{
+      border: 2px dashed black;
+  }
+  .ticket-prices{
+      width: 50%;
+      margin: auto;
+  }
+  .ticket-prices h1,h4{
+      font-family: Mistral;
+  }
+  .ticket-prices h4{
+      font-size: 40px;
+      font-weight: 500;
+  }
+  .ticket-prices h1{
+      font-size: 75px;
+      font-weight: 700;
+  }
+ .d-flex{
+      flex-wrap: wrap;
+  }
+  .snacks{
+    background-color: rgba(55,67,205,1); 
+    margin: auto;
+    height: 1000px;
+    overflow: visible;
+  }
+  .designs{
+      margin: auto;
+  }
+  .snacks h1{
+      font-family: Mistral;
+      font-size: 60px;
+  }
+  .triangle {
+	height: 0;
+	width: 0;
+	border-left: 51px solid transparent;
+	border-right: 50.5px solid transparent;
+	border-bottom: 51px solid transparent;
+	border-top: 51px solid #FF66F5;
+}
+.about p{
+    width: 25%;
+    margin: auto;
+}
+.about h1{
+    font-family: Mistral;
+}
+
+@media screen and (max-width:420px){
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    #home{
+        width: 100%;
+        padding: 0px 20px;
+        margin: 0px;
+    }
+    #intro-heading{
+        font-size: 45px;
+    }
+    #intro-description{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    #how-it-works{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .underline{
+        margin-left: 50px;
+    }
+    .ticket-prices{
+        width: 100%;
+    }
+    .triangle{
+        display: none;
+    }
+    .about p{
+        width: 100%;
+    }
+    .movies{
+        height: 100%;
+    }
+    
+}
+@media screen and (max-width:321px){
+    *{
+        padding: 0px;
+        margin: 0px;
+    }
+    #home{
+        width: 100%;
+        padding: 0px 20px;
+        margin: 0px;
+    }
+    #intro-heading{
+        font-size: 45px;
+    }
+    #intro-description{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    #how-it-works{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    .underline{
+        margin-left: 50px;
+    }
+    .ticket-prices{
+        width: 100%;
+    }
+    .triangle{
+        display: none;
+    }
+    .about p{
+        width: 100%;
+    }
 }
