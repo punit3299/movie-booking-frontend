@@ -1,0 +1,94 @@
+<h1 class="col-sm-12" style="font-weight: 800;margin-top: 1%;">{{theatreDetails.theatreName}}</h1>
+<div style="margin-left: 1%;" class="row">
+  <h3>Manager Name:- &nbsp;&nbsp;</h3>
+  <h3 class="col-sm-9">{{theatreDetails.managerName}}</h3>
+</div>
+<br>
+<hr>
+<h3 class="text-danger">Add Screen</h3>
+<br>
+<form [formGroup]="addScreenForm">
+  <div class="row form-group">
+    <label for="screenName" class="col-sm-2 font-weight-bold">
+      Screen Name :
+    </label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" placeholder="Screen Name" formControlName="screenName" />
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <label for="noOfSeats" class="col-sm-2 font-weight-bold">
+      No Of Seats :
+    </label>
+    <div class="col-sm-3">
+      <input type="number" class="form-control" placeholder="No Of Seats" formControlName="noOfSeats" />
+    </div>
+  </div>
+<button class="btn btn-primary" (click)="addScreen()">Add</button>
+</form>
+<hr><br>
+<!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
+<table class="table table-striped table-responsive table-hover  text-bold">
+  <thead style="background-color: #807191;">
+    <tr>
+      <th style="width: 150px;">Screen Id</th>
+      <th style="width: 200px;">Screen Name</th>
+      <th style="width: 200px;">No Of Seats</th>
+      <th style="width: 300px;">Delete/Update</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let i of pp"> -->
+    <tr *ngFor="let screen of screens">
+      <td>{{screen.screenId}}</td>
+      <td style="width: 150px;">{{screen.screenName}}</td>
+      <td>{{screen.noOfSeats}}</td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteScreen(screen.screenId)">Delete Screen</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
+          (click)="ChangeNoOfSeat(screen.screenId,screen.noOfSeats)">
+          Update Seats
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">View/Update No Of Seats</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Current No of Seats:- {{currNoOfSeats}}
+        <br>
+        <hr>
+        <div>
+          <form [formGroup]="updateNoOfSeatsForm">
+            <label for="">Enter No Of Seats To Be Added</label>
+            <input type="number" style="width: 50%;" class="form-control" formControlName="updatedNoOfSeats"
+              placeholder="Enter No Of Seats" />
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateNoOfSeats()">Save
+          changes</button>
+      </div>
+    </div>
+  </div>
+</div>

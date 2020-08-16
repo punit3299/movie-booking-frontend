@@ -5,7 +5,4 @@ export class Screen{
     screenId;
 	screenName;
 	noOfSeats;
-    status;
-    movie:Movie;
-    theatre:Theatre;
 }

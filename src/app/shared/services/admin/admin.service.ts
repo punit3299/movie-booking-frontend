@@ -38,4 +38,16 @@ export class AdminService {
   getGenderwiseCount(){
     return this.http.get(this.url+"/genderwiseCount");
   }
+  getDetailsOfTheatre(theatreId:number)
+  {
+    return this.http.get(this.url+"/getTheatre/"+theatreId)
+  }
+  getScreenList(theatreId:number)
+  {
+    return this.http.get<Screen[]>(this.url+"/screen/"+theatreId);
+  }
+  updateNoOfSeats(screenId:number,noOfSeats:number)
+  {
+    return this.http.patch(this.url+"/seat",{"screenId":screenId,"noOfSeats":noOfSeats})
+  }
 }

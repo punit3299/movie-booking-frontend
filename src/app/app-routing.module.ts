@@ -7,6 +7,7 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerHomeComponent } from './customer/customer-home/customer-home.component';
 import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
+import { ScreenComponent } from './admin/screen/screen.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
     children: [
       { path: 'home', component: AdminHomeComponent },
       { path: 'stats', component: AdminStatsComponent },
-      { path: '**', component: AdminHomeComponent },
+      { path: 'screen/:theatreId', component:ScreenComponent},
+      { path: '**', component: AdminHomeComponent }
+
     ]
   },
   {
