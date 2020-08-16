@@ -10,6 +10,7 @@
 #my-balance{
     color: yellow;
     border: 1px solid yellow;
+    font-family: Mistral;
 }
 #my-balance:hover{
     color: black;
