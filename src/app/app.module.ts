@@ -17,7 +17,9 @@ import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 import { ScreenComponent } from './admin/screen/screen.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
-import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe'
+import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe';
+import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
+import { SearchBookingPipe } from './shared/pipe/search-booking.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe'
     AdminStatsComponent,
     ScreenComponent,
     ViewCustomersComponent,
-    SearchCustomerPipe
+    SearchCustomerPipe,
+    AdminBookingsComponent,
+    SearchBookingPipe
   ],
   imports: [
     BrowserModule,
