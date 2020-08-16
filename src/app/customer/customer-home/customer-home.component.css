@@ -107,6 +107,10 @@
   .designs{
       margin: auto;
   }
+  .snacks h1{
+      font-family: Mistral;
+      font-size: 60px;
+  }
   .triangle {
 	height: 0;
 	width: 0;
