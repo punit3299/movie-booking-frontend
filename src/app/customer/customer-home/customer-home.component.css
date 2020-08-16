@@ -78,3 +78,46 @@
     overflow:hidden;
     box-shadow: 0 0 0 1px #eef, 0 0 5px;
   }
+  .text-dark{
+      background-color: #FF66F5;
+  }
+  .tickets{
+      border: 2px dashed black;
+  }
+  .ticket-prices{
+      margin: auto;
+  }
+  .ticket-prices h1,h4{
+      font-family: Mistral;
+  }
+  .ticket-prices h4{
+      font-size: 40px;
+      font-weight: 500;
+  }
+  .ticket-prices h1{
+      font-size: 75px;
+      font-weight: 700;
+  }
+  .snacks{
+    background-color: rgba(55,67,205,1); 
+    margin: auto;
+    height: 1000px;
+    overflow: visible;
+  }
+  .designs{
+      margin: auto;
+  }
+  .triangle {
+	height: 0;
+	width: 0;
+	border-left: 51px solid transparent;
+	border-right: 50.5px solid transparent;
+	border-bottom: 51px solid transparent;
+	border-top: 51px solid #FF66F5;
+}
+.about p{
+    margin: auto;
+}
+.about h1{
+    font-family: Mistral;
+}
