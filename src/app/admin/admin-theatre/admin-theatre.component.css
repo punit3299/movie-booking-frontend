@@ -1,0 +1,9 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+ }
+ 
+ .row > div[class*='col-'] {
+   display: flex;
+ }

@@ -10,6 +10,7 @@ import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 import { ScreenComponent } from './admin/screen/screen.component';
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
+import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'screen/:theatreId', component:ScreenComponent},
       { path: 'viewCustomers', component:ViewCustomersComponent},
       { path: 'bookings', component: AdminBookingsComponent },
+      { path: 'theatre', component: AdminTheatreComponent},
       { path: '**', component: AdminHomeComponent }
 
     ]

@@ -19,7 +19,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
 import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
-import { SearchBookingPipe } from './shared/pipe/search-booking.pipe'
+import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
+import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { SearchBookingPipe } from './shared/pipe/search-booking.pipe'
     ViewCustomersComponent,
     SearchCustomerPipe,
     AdminBookingsComponent,
-    SearchBookingPipe
+    SearchBookingPipe,
+    AdminTheatreComponent
   ],
   imports: [
     BrowserModule,
