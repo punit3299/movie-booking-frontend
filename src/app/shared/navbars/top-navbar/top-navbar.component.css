@@ -61,3 +61,35 @@ tr:hover{
 .close{
     color: white;
 }
+.fa-credit-card-alt{
+    color: orangered;
+}
+.fa-user-secret{
+    color: orange;
+}
+.fa-eye-slash{
+    color: yellowgreen;
+}
+input{
+    width: 200px;
+}
+#expiry_month{
+    width: 45px;
+}
+#expiry_year{
+    width: 45px;
+}
+#cvv{
+    width: 60px;
+}
+#cvv_image{
+    margin-top: 8%;
+    width: 15%;
+    height: 35px;
+}
+#pin{
+    width: 70px;
+}
+.d-flex{
+    flex-wrap: wrap;
+}

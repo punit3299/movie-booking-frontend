@@ -1,8 +1,8 @@
 import { Show } from './show.model';
 
 export class Transaction{
-    transactionId;
-	transactionMessage;
+    transactionId:number;
+	transactionMessage:string;
     transactionTime;
     show:Show;
 }
