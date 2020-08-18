@@ -14,8 +14,10 @@ export class AdminTheatreComponent implements OnInit {
 
   theatres: Theatre[]=[];
   addTheatre: FormGroup;
+  updateTheatre: FormGroup;
   cities: City[]=[];
   cityId: number;
+  submitted: boolean=false;
 
 
   constructor(private adminService: AdminService, private router: Router, private formBuilder: FormBuilder) { }
@@ -27,6 +29,20 @@ export class AdminTheatreComponent implements OnInit {
       theatreName: ['', Validators.required],
       managerName: ['', Validators.required],
       managerContact: ['', Validators.required],
+      city: this.formBuilder.group({
+        cityId: ['', Validators.required],
+        cityName: ['']
+      })
+
+    });
+
+    this.updateTheatre= this.formBuilder.group({
+      theatreId: [''],
+      theatreName: [''],
+      theatreRating:[''],
+      managerName: ['', Validators.required],
+      managerContact: ['', Validators.required],
+      status:[''],
       city: this.formBuilder.group({
         cityId: [''],
         cityName: ['']
@@ -71,6 +87,11 @@ export class AdminTheatreComponent implements OnInit {
   addNewTheatre()
   {
     let city: City;
+    this.submitted=true;
+    if(this.addTheatre.invalid)
+    {
+      return;
+    }
 
     //this.searchForm.controls.source.setValue(this.searchForm.controls.destination.value);
     this.adminService.getCityById(this.addTheatre['controls'].city['controls'].cityId.value).subscribe(
@@ -87,6 +108,22 @@ export class AdminTheatreComponent implements OnInit {
       err=>{console.log(err.error.message);}
     );
   
+  }
+
+  updateTheatreMethod()
+  {
+    console.log(this.updateTheatre.value);
+    this.adminService.updateTheatre(this.updateTheatre.value).subscribe(
+      data=>{alert("Theatre updated Successfully"); this.getAllTheatres();},
+      err=>{console.log(err.error.message);}
+    );
+
+  }
+
+  setTheatre(theatre: Theatre)
+  {
+    this.updateTheatre.setValue(theatre);
+    console.log(this.updateTheatre.value);
   }
 
 }

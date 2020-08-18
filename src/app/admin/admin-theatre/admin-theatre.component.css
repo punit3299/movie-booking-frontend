@@ -12,3 +12,11 @@
  {
      margin-top: 1em;
  }
+
+ .d-flex{
+  flex-wrap: wrap;
+}
+
+.form-control{
+  width: 200px;
+}

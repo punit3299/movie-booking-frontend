@@ -1,0 +1,35 @@
+<div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="p-3">
+                <h4>Search bar</h4>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <form [formGroup]="city" (ngSubmit)="addCity()" autocomplete="off">
+                <div class="row">
+                    <input type="text" class="form-control " id="CityName" placeholder="City Name"
+                                formControlName="cityName" />
+                    <button class="btn btn-primary">Add City</button>            
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="content col-sm-4" *ngFor="let city of cities;let i = index">
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="//placehold.it/500x200" alt="Card image cap">
+                    <div class="card-block">
+                        <h4 class="card-title">krishna</h4>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">{{city.cityName}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

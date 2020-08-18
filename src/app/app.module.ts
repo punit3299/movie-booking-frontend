@@ -20,7 +20,8 @@ import { ViewCustomersComponent } from './admin/view-customers/view-customers.co
 import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
-import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component'
+import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
+import { AdminCityComponent } from './admin/admin-city/admin-city.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.compo
     SearchCustomerPipe,
     AdminBookingsComponent,
     SearchBookingPipe,
-    AdminTheatreComponent
+    AdminTheatreComponent,
+    AdminCityComponent
   ],
   imports: [
     BrowserModule,

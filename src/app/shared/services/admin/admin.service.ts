@@ -115,4 +115,14 @@ export class AdminService {
   {
     return this.http.get<City>(this.url+"/city/"+cityId);
   }
+
+  addCity(city: City)
+  {
+    return this.http.post(this.url+"/city", city);
+  }
+
+  updateTheatre(theatre: Theatre)
+  {
+    return this.http.put(this.url+"/theatre/edit/"+theatre.theatreId, theatre);
+  }
 }

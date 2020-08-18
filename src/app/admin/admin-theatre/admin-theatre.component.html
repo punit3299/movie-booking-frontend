@@ -1,18 +1,21 @@
-<div>
+<div class="container">
     <div class="row">
         <div class="col-lg-6">
             <div class="p-3">
                 <h4>Search bar</h4>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-lg-2">
             <div class="p-3">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#addTheatre">Add Theatre</button>
             </div>
         </div>
 
     </div>
-    <div class="container">
+    <div>
         <div class="row">
             <div class="content col-sm-4" *ngFor="let theatre of theatres;let i = index">
                 <div class="card">
@@ -24,7 +27,7 @@
                     </div>
                     <div class="p-3 row">
                         <div class="col-md-4">
-                            <a class="btn btn-primary">edit</a>
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#updateTheatre" (click)="setTheatre(theatre)">edit</a>
                         </div>
                         <div class="col-md-4">
                             <a class="btn btn-primary" (click)="viewTheatre(theatre)">view</a>
@@ -55,24 +58,46 @@
             <div class="modal-body">
                 <form [formGroup]="addTheatre" class="ml-5" action="javascript:void(0);" autocomplete="off">
                     <div class="form-group d-flex">
-                        <label  class="mr-5">Theatre Name</label>
+                        <label  class="mr-5 font-weight-bold">Theatre Name : </label>
+                        
                         <input type="text" class="form-control" formControlName="theatreName">
+                    
+                    <div *ngIf="submitted && addTheatre.controls.theatreName.errors">
+                        <div class="text-danger" *ngIf="addTheatre.controls.theatreName.errors.required">
+                          Theatre Name is required ..!
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group d-flex">
-                        <label  class="mr-5">Manager Name</label>
+                        <label  class="mr-5 font-weight-bold">Manager Name : </label>
                         <input type="text" class="form-control" formControlName="managerName">
+                        <div *ngIf="submitted && addTheatre.controls.managerName.errors">
+                            <div class="text-danger" *ngIf="addTheatre.controls.managerName.errors.required">
+                              Manager Name is required ..!
+                            </div>
+                          </div>
                     </div>
                     <div class="form-group d-flex">
-                        <label  class="mr-5">Manager contact Number</label>
+                        <label  class="mr-5 font-weight-bold">Manager contact : </label>
                         <input type="text" class="form-control" formControlName="managerContact">
+                        <div *ngIf="submitted && addTheatre.controls.managerContact.errors">
+                            <div class="text-danger" *ngIf="addTheatre.controls.managerContact.errors.required">
+                              Contact No. is required ..!
+                            </div>
+                          </div>
                     </div>
                     <div class="form-group d-flex" formGroupName="city">
-                        <label  class="mr-5">City</label>
+                        <label  class="mr-5 font-weight-bold">City : </label>
                         <select class="form-control" formControlName="cityId">
                             <option *ngFor="let city of cities" [value]="city.cityId">
                                 {{city.cityName}}
                               </option>
                         </select>
+                        <div *ngIf="submitted && addTheatre.controls.city.controls.cityId.errors">
+                            <div class="text-danger" *ngIf="addTheatre.controls.city.controls.cityId.errors.required">
+                              City is required ..!
+                            </div>
+                          </div>
                     </div>
 
 
@@ -91,3 +116,51 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="updateTheatre">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update Theatre</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form [formGroup]="updateTheatre" class="ml-5" action="javascript:void(0);" autocomplete="off">
+                    <div class="form-group d-flex">
+                        <label  class="mr-5 font-weight-bold">Theatre Name : </label>
+                        <input type="text" class="form-control" formControlName="theatreName" disabled>
+                    </div>
+                    <div class="form-group d-flex">
+                        <label  class="mr-5 font-weight-bold">Manager Name : </label>
+                        <input type="text" class="form-control" formControlName="managerName">
+                    </div>
+                    <div class="form-group d-flex">
+                        <label  class="mr-5 font-weight-bold">Manager contact : </label>
+                        <input type="text" class="form-control" formControlName="managerContact">
+                    </div>
+
+                    <div class="form-group d-flex" formGroupName="city">
+                        <label  class="mr-5 font-weight-bold">City : </label>
+                        <input type="text" class="form-control" formControlName="cityName" disabled>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <button class="btn btn-primary" (click)="updateTheatreMethod()" >Proceed</button>
+                    </div>
+            
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

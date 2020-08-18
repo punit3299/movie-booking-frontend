@@ -11,6 +11,7 @@ import { ScreenComponent } from './admin/screen/screen.component';
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
+import { AdminCityComponent } from './admin/admin-city/admin-city.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'viewCustomers', component:ViewCustomersComponent},
       { path: 'bookings', component: AdminBookingsComponent },
       { path: 'theatre', component: AdminTheatreComponent},
+      { path: 'city', component: AdminCityComponent},
       { path: '**', component: AdminHomeComponent }
 
     ]
