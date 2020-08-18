@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Theatre } from 'src/app/shared/models/theatre.model';
 import { AdminService } from 'src/app/shared/services/admin/admin.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { City } from 'src/app/shared/models/city.model';
 
 @Component({
   selector: 'app-admin-theatre',
@@ -11,12 +13,26 @@ import { Router } from '@angular/router';
 export class AdminTheatreComponent implements OnInit {
 
   theatres: Theatre[]=[];
+  addTheatre: FormGroup;
+  cities: City[]=[];
+  cityId: number;
 
 
-  constructor(private adminService: AdminService, private router: Router) { }
+  constructor(private adminService: AdminService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getAllTheatres();
+    this.getAllCities();
+    this.addTheatre=this.formBuilder.group({
+      theatreName: ['', Validators.required],
+      managerName: ['', Validators.required],
+      managerContact: ['', Validators.required],
+      city: this.formBuilder.group({
+        cityId: [''],
+        cityName: ['']
+      })
+
+    });
 
   }
 
@@ -26,6 +42,14 @@ export class AdminTheatreComponent implements OnInit {
       data=>{this.theatres=data; console.log(this.theatres)},
       err=>{console.log(err.error.message);}
       )
+  }
+
+  getAllCities()
+  {
+    this.adminService.getAllCities().subscribe(
+      data=>{this.cities=data;},
+      err=>{console.log(err.error.message);}
+    );
   }
 
   deleteTheatre(theatre:Theatre)
@@ -42,6 +66,27 @@ export class AdminTheatreComponent implements OnInit {
   viewTheatre(theatre: Theatre)
   {
     this.router.navigate(['/admin/screen', theatre.theatreId]);
+  }
+
+  addNewTheatre()
+  {
+    let city: City;
+
+    //this.searchForm.controls.source.setValue(this.searchForm.controls.destination.value);
+    this.adminService.getCityById(this.addTheatre['controls'].city['controls'].cityId.value).subscribe(
+      data=>{city=data;
+        this.addTheatre['controls'].city['controls'].cityName.setValue(city.cityName);
+        console.log(this.addTheatre.value);
+      },
+      err=>{console.log(err.error.message);}
+    );
+    //this.addTheatre['controls'].city['controls'].cityName.setValue(city.cityName.value);
+
+    this.adminService.addTheatre(this.addTheatre.value).subscribe(
+      data=>{console.log(data); this.getAllTheatres();},
+      err=>{console.log(err.error.message);}
+    );
+  
   }
 
 }

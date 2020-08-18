@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Customer } from '../../models/customer.model';
 import { Booking } from '../../models/booking.model';
 import { Theatre } from '../../models/theatre.model';
+import { City } from '../../models/city.model';
 
 @Injectable({
   providedIn: 'root'
@@ -98,5 +99,20 @@ export class AdminService {
   deleteTheatreById(theatreId)
   {
     return this.http.delete(this.url+"/theatre/"+theatreId);
+  }
+
+  getAllCities()
+  {
+    return this.http.get<City[]>(this.url+"/city/list");
+  }
+
+  addTheatre(theatre: Theatre)
+  {
+    return this.http.post(this.url+"/theatre", theatre);
+  }
+
+  getCityById(cityId)
+  {
+    return this.http.get<City>(this.url+"/city/"+cityId);
   }
 }
