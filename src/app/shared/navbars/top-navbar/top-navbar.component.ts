@@ -13,19 +13,22 @@ export class TopNavbarComponent implements OnInit {
 
   constructor(private customerService: CustomerService,private fb: FormBuilder) { }
 
-  customerId: number = 1160;
   transactions: Array<Transaction>;
-  customer:Customer=new Customer(0,"",0,"",0);
+  customer:Customer=new Customer(1160,"",0,"",0);
 
 
   ngOnInit() {
 
-    this.customerService.getAllTransactions(this.customerId).subscribe(data => {
+    this.customerService.getAllTransactions(this.customer.customerId).subscribe(data => {
       console.log(data);
       this.transactions = data;
 
     })
   }
+
+  amountForm = this.fb.group({
+    amount: ['', [Validators.required, Validators.pattern("^-?[0-9]\\d*(\\.\\d{1,2})?$")]]
+  });
 
   cardForm = this.fb.group({
     CardNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{16}$")]],
@@ -37,7 +40,16 @@ export class TopNavbarComponent implements OnInit {
   });
 
   addMoney(){
-
+    if(parseInt(this.cardForm.controls.Year.value)<20 || (parseInt(this.cardForm.controls.Month.value)>12 || parseInt(this.cardForm.controls.Month.value)<1)){
+      alert("Please check your Expiry");
+    }
+   else{
+    this.customerService.addMoneyToWallet(parseInt(this.amountForm.controls.amount.value),this.customer).subscribe(data=>{
+      alert(parseInt(this.amountForm.controls.amount.value)+" added to your wallet");
+      this.customer=data;
+      console.log(data);
+    })
+   }
   }
 
 }

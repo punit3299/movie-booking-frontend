@@ -90,6 +90,14 @@ input{
 #pin{
     width: 70px;
 }
+tbody{
+    overflow: scroll;
+}
+#money{
+    background: transparent;
+    color: yellow;
+    border-color: yellow;
+}
 .d-flex{
     flex-wrap: wrap;
 }
