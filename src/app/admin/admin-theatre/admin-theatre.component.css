@@ -7,3 +7,8 @@
  .row > div[class*='col-'] {
    display: flex;
  }
+
+ .content
+ {
+     margin-top: 1em;
+ }

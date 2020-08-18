@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../../models/customer.model';
 import { Booking } from '../../models/booking.model';
+import { Theatre } from '../../models/theatre.model';
 
 @Injectable({
   providedIn: 'root'
@@ -87,5 +88,15 @@ export class AdminService {
 
   deleteBookingById(bookingId){
     return this.http.delete(this.url+"/deleteBooking/"+bookingId);
+  }
+
+  getAllTheatres()
+  {
+    return this.http.get<Theatre[]>(this.url+"/theatre/list");
+  }
+
+  deleteTheatreById(theatreId)
+  {
+    return this.http.delete(this.url+"/theatre/"+theatreId);
   }
 }

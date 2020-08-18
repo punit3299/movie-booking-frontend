@@ -12,15 +12,27 @@
         </div>
 
     </div>
-    <div class="content container">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="content col-sm-4" *ngFor="let theatre of theatres;let i = index">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="//placehold.it/500x200" alt="Card image cap">
                     <div class="card-block">
-                        <h4 class="card-title">Card title</h4>
+                        <h4 class="card-title">krishna</h4>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <p class="card-text"><small class="text-muted">{{theatre.theatreName}}</small></p>
+                    </div>
+                    <div class="p-3 row">
+                        <div class="col-md-4">
+                            <a class="btn btn-primary">edit</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-primary" (click)="viewTheatre(theatre)">view</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-primary" (click)="deleteTheatre(theatre)">delete</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
