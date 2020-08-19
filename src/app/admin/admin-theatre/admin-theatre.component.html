@@ -1,16 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <div class="p-3">
-                <h4>Search bar</h4>
+            <div class="mt-4">
+                <!-- Search form -->
+                <input class="form-control" type="text" placeholder="Search Theatre" aria-label="Search">
             </div>
         </div>
         <div class="col-md-4">
 
         </div>
         <div class="col-lg-2">
-            <div class="p-3">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#addTheatre">Add Theatre</button>
+            <div class="mt-4">
+                <button class="btn btn-primary" id="addTheatreBtn" data-toggle="modal" data-target="#addTheatre">Add
+                    Theatre</button>
             </div>
         </div>
 
@@ -20,20 +22,27 @@
             <div class="content col-sm-4" *ngFor="let theatre of theatres;let i = index">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="//placehold.it/500x200" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-title">krishna</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="card-text"><small class="text-muted">{{theatre.theatreName}}</small></p>
+                    <div class="card-block p-2">
+                        <h4 class="card-title text-center mb-4">{{theatre.theatreName}}</h4>
+                        <h6 class="text-secondary"><span class="text-dark">Manager : </span>{{theatre.managerName}}</h6>
+                        <div class="row">
+                            <h6 class="col-6 text-secondary"><span class="text-dark">Contact
+                                    :</span>{{theatre.managerContact}}</h6>
+                            <h6 class="col-6 text-secondary text-right"><span class="text-dark">City
+                                    :</span>{{theatre.city.cityName}}</h6>
+                        </div>
+                        <p class="card-text"><small class="text-muted"></small></p>
                     </div>
                     <div class="p-3 row">
                         <div class="col-md-4">
-                            <a class="btn btn-primary" data-toggle="modal" data-target="#updateTheatre" (click)="setTheatre(theatre)">edit</a>
+                            <a class="btn btn-primary" data-toggle="modal" data-target="#updateTheatre"
+                                (click)="setTheatre(theatre)">edit</a>
                         </div>
                         <div class="col-md-4">
-                            <a class="btn btn-primary" (click)="viewTheatre(theatre)">view</a>
+                            <a class="btn btn-success" (click)="viewTheatre(theatre)">view</a>
                         </div>
                         <div class="col-md-4">
-                            <a class="btn btn-primary" (click)="deleteTheatre(theatre)">delete</a>
+                            <a class="btn btn-danger" (click)="deleteTheatre(theatre)">delete</a>
                         </div>
 
                     </div>
@@ -56,55 +65,65 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form [formGroup]="addTheatre" class="ml-5" action="javascript:void(0);" autocomplete="off">
-                    <div class="form-group d-flex">
-                        <label  class="mr-5 font-weight-bold">Theatre Name : </label>
-                        
-                        <input type="text" class="form-control" formControlName="theatreName">
-                    
-                    <div *ngIf="submitted && addTheatre.controls.theatreName.errors">
-                        <div class="text-danger" *ngIf="addTheatre.controls.theatreName.errors.required">
-                          Theatre Name is required ..!
+                <form [formGroup]="addTheatre" class="ml-2 mr-3" action="javascript:void(0);" autocomplete="off">
+                    <div class="form-group row">
+                        <label class=" col-6 font-weight-bold">Theatre Name : </label>
+
+                        <div class="col-6 d-block">
+                            <input type="text" class=" form-control" formControlName="theatreName">
+
+                            <div *ngIf="submitted && addTheatre.controls.theatreName.errors">
+                                <div class="text-danger" *ngIf="addTheatre.controls.theatreName.errors.required">
+                                    Required field !
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="form-group d-flex">
-                        <label  class="mr-5 font-weight-bold">Manager Name : </label>
-                        <input type="text" class="form-control" formControlName="managerName">
-                        <div *ngIf="submitted && addTheatre.controls.managerName.errors">
-                            <div class="text-danger" *ngIf="addTheatre.controls.managerName.errors.required">
-                              Manager Name is required ..!
+                    <div class="form-group row">
+                        <label class=" col-6 font-weight-bold">Manager Name : </label>
+                        <div class="col-6 d-block">
+                            <input type="text" class="form-control" formControlName="managerName">
+                            <div *ngIf="submitted && addTheatre.controls.managerName.errors">
+                                <div class="text-danger" *ngIf="addTheatre.controls.managerName.errors.required">
+                                    Required required !
+                                </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
-                    <div class="form-group d-flex">
-                        <label  class="mr-5 font-weight-bold">Manager contact : </label>
-                        <input type="text" class="form-control" formControlName="managerContact">
-                        <div *ngIf="submitted && addTheatre.controls.managerContact.errors">
-                            <div class="text-danger" *ngIf="addTheatre.controls.managerContact.errors.required">
-                              Contact No. is required ..!
+                    <div class="form-group row">
+                        <label class="col-6 font-weight-bold">Manager contact : </label>
+                        <div class="col-6 d-block">
+                            <input type="text" class="form-control" formControlName="managerContact">
+                            <div *ngIf="submitted && addTheatre.controls.managerContact.errors">
+                                <div class="text-danger" *ngIf="addTheatre.controls.managerContact.errors.required">
+                                    Required field !
+                                </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
-                    <div class="form-group d-flex" formGroupName="city">
-                        <label  class="mr-5 font-weight-bold">City : </label>
-                        <select class="form-control" formControlName="cityId">
-                            <option *ngFor="let city of cities" [value]="city.cityId">
-                                {{city.cityName}}
-                              </option>
-                        </select>
-                        <div *ngIf="submitted && addTheatre.controls.city.controls.cityId.errors">
-                            <div class="text-danger" *ngIf="addTheatre.controls.city.controls.cityId.errors.required">
-                              City is required ..!
+                    <div class="form-group row" formGroupName="city">
+                        <label class="col-6 font-weight-bold">City : </label>
+                        <div class="col-6 d-block">
+                            <select class=" form-control" formControlName="cityId">
+                                <option *ngFor="let city of cities" [value]="city.cityId">
+                                    {{city.cityName}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && addTheatre.controls.city.controls.cityId.errors">
+                                <div class="text-danger"
+                                    *ngIf="addTheatre.controls.city.controls.cityId.errors.required">
+                                    Required field !
+                                </div>
                             </div>
-                          </div>
+                        </div>
                     </div>
 
 
                     <div class="form-group mb-4">
-                        <button class="btn btn-primary" (click)="addNewTheatre()" >Proceed</button>
+                        <button class="btn btn-primary" [disabled]=!addTheatre.valid (click)="addNewTheatre()"
+                            data-dismiss="modal">Proceed</button>
                     </div>
-            
+
                 </form>
             </div>
 
@@ -131,27 +150,27 @@
             <div class="modal-body">
                 <form [formGroup]="updateTheatre" class="ml-5" action="javascript:void(0);" autocomplete="off">
                     <div class="form-group d-flex">
-                        <label  class="mr-5 font-weight-bold">Theatre Name : </label>
+                        <label class="mr-5 font-weight-bold">Theatre Name : </label>
                         <input type="text" class="form-control" formControlName="theatreName" disabled>
                     </div>
                     <div class="form-group d-flex">
-                        <label  class="mr-5 font-weight-bold">Manager Name : </label>
+                        <label class="mr-5 font-weight-bold">Manager Name : </label>
                         <input type="text" class="form-control" formControlName="managerName">
                     </div>
                     <div class="form-group d-flex">
-                        <label  class="mr-5 font-weight-bold">Manager contact : </label>
+                        <label class="mr-5 font-weight-bold">Manager contact : </label>
                         <input type="text" class="form-control" formControlName="managerContact">
                     </div>
 
                     <div class="form-group d-flex" formGroupName="city">
-                        <label  class="mr-5 font-weight-bold">City : </label>
+                        <label class="mr-5 font-weight-bold">City : </label>
                         <input type="text" class="form-control" formControlName="cityName" disabled>
                     </div>
 
                     <div class="form-group mb-4">
-                        <button class="btn btn-primary" (click)="updateTheatreMethod()" >Proceed</button>
+                        <button class="btn btn-primary" (click)="updateTheatreMethod()">Proceed</button>
                     </div>
-            
+
                 </form>
             </div>
 
@@ -163,4 +182,3 @@
         </div>
     </div>
 </div>
-

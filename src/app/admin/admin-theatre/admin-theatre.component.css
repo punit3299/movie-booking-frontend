@@ -20,3 +20,9 @@
 .form-control{
   width: 200px;
 }
+.btn{
+  width: 100px;
+}
+#addTheatreBtn{
+  width: 100%;
+}
