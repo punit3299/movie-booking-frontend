@@ -23,29 +23,34 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent,
-    children:[   
+  {
+    path: 'home', component: HomeComponent,
+    children: [
       { path: 'login', component: LoginComponent },
-      { path: 'sign-up', component: SignUpComponent},
+      { path: 'sign-up', component: SignUpComponent },
     ]
-},
-  
+  },
+
   {
     path: 'admin', component: AdminComponent,
     children: [
       { path: 'home', component: AdminHomeComponent },
       { path: 'stats', component: AdminStatsComponent },
-      { path: 'screen/:theatreId', component:ScreenComponent},
-      { path: 'viewCustomers', component:ViewCustomersComponent},
-      {path:'viewShows',component:AdminViewShowComponent},
-      {path:'addShow/:screenId/:theatreId',component:AdminAddShowComponent,
-      canDeactivate:[AddShowCanDeactivateGuardService]},
-      {path:'addMovie', component:AdminAddMovieComponent,
-      canDeactivate:[AddMovieCanDeactivateGaurdServiceService]},
-      {path:'viewMovies',component:ViewMovieComponent},
+      { path: 'screen/:theatreId', component: ScreenComponent },
+      { path: 'viewCustomers', component: ViewCustomersComponent },
+      { path: 'viewShows', component: AdminViewShowComponent },
+      {
+        path: 'addShow/:screenId/:theatreId', component: AdminAddShowComponent,
+        canDeactivate: [AddShowCanDeactivateGuardService]
+      },
+      {
+        path: 'addMovie', component: AdminAddMovieComponent,
+        canDeactivate: [AddMovieCanDeactivateGaurdServiceService]
+      },
+      { path: 'viewMovies', component: ViewMovieComponent },
       { path: 'bookings', component: AdminBookingsComponent },
-      { path: 'theatre', component: AdminTheatreComponent},
-      { path: 'city', component: AdminCityComponent},
+      { path: 'theatre', component: AdminTheatreComponent },
+      { path: 'city', component: AdminCityComponent },
       { path: '**', component: AdminHomeComponent }
     ]
   },
@@ -56,7 +61,7 @@ const routes: Routes = [
       { path: '**', component: CustomerHomeComponent }
     ]
   },
- 
+
 ];
 
 @NgModule({

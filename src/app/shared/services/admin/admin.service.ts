@@ -57,52 +57,42 @@ export class AdminService {
   getRecentBookingsCount() {
     return this.http.get(this.url + "/recentBookingsCount");
   }
-  getDetailsOfTheatre(theatreId:number)
-  {
-    return this.http.get(this.url+"/getTheatre/"+theatreId)
+  getDetailsOfTheatre(theatreId: number) {
+    return this.http.get(this.url + "/getTheatre/" + theatreId)
   }
-  getScreenList(theatreId:number)
-  {
-    return this.http.get<Screen[]>(this.url+"/screen/"+theatreId);
+  getScreenList(theatreId: number) {
+    return this.http.get<Screen[]>(this.url + "/screen/" + theatreId);
   }
-  updateNoOfSeats(screenId:number,noOfSeats:number)
-  {
-    return this.http.patch(this.url+"/seat",{"screenId":screenId,"noOfSeats":noOfSeats})
+  updateNoOfSeats(screenId: number, noOfSeats: number) {
+    return this.http.patch(this.url + "/seat", { "screenId": screenId, "noOfSeats": noOfSeats })
   }
-  addScreen(screen:Screen,theatreId:number)
-  {
-    return this.http.post(this.url+"/screen/"+theatreId,screen);
+  addScreen(screen: Screen, theatreId: number) {
+    return this.http.post(this.url + "/screen/" + theatreId, screen);
   }
-  deleteScreen(screenId:number,theatreId:number)
-  {
-    return this.http.delete(this.url+"/screen/"+theatreId+"/"+screenId)
+  deleteScreen(screenId: number, theatreId: number) {
+    return this.http.delete(this.url + "/screen/" + theatreId + "/" + screenId)
   }
-  getAllCustomers()
-  {
-    return this.http.get<Customer[]>(this.url+"/customers")
+  getAllCustomers() {
+    return this.http.get<Customer[]>(this.url + "/customers")
   }
 
-  addMovie(movie: Movie):Observable<any>
-  {
-    return this.http.post("http://localhost:8083/admin/movie",movie);
+  addMovie(movie: Movie): Observable<any> {
+    return this.http.post("http://localhost:8083/admin/movie", movie);
   }
 
-  getAllMovies():Observable<any>
-  {
-    return this.http.get(this.url+"/movie/getAllMovies");
+  getAllMovies(): Observable<any> {
+    return this.http.get(this.url + "/movie/getAllMovies");
   }
 
-  deleteMovie(movieId:number):Observable<any>
-  {
-    return this.http.delete(this.url+"/movie/"+movieId);
+  deleteMovie(movieId: number): Observable<any> {
+    return this.http.delete(this.url + "/movie/" + movieId);
   }
-  addShow(show:Show):Observable<any>
-  {
-    return this.http.post(this.url+"/theatre/screen/show",show);
+  addShow(show: Show): Observable<any> {
+    return this.http.post(this.url + "/theatre/screen/show", show);
   }
 
-  findAllShows(theatreId:number):Observable<any>{
-    return this.http.get(this.url+"/"+theatreId+"/screen/show");
+  findAllShows(theatreId: number): Observable<any> {
+    return this.http.get(this.url + "/" + theatreId + "/screen/show");
   }
 
   deleteShow(showId:number):Observable<any>
@@ -115,44 +105,47 @@ export class AdminService {
     }  
   getRecentThreeBookings(){
     return this.http.get<Booking[]>(this.url+"/recentThreeBookings");
+   }
+  deleteShow(showId: number): Observable<any> {
+    return this.http.delete(this.url + "/theatre/screen/" + showId);
+  }
+  getAllBookings() {
+    return this.http.get<Booking[]>(this.url + "/bookings");
   }
 
-  deleteBookingById(bookingId){
-    return this.http.delete(this.url+"/deleteBooking/"+bookingId);
+  getRecentThreeBookings() {
+    return this.http.get<Booking[]>(this.url + "/recentThreeBookings");
   }
 
-  getAllTheatres()
-  {
-    return this.http.get<Theatre[]>(this.url+"/theatre/list");
+  deleteBookingById(bookingId) {
+    return this.http.delete(this.url + "/deleteBooking/" + bookingId);
   }
 
-  deleteTheatreById(theatreId)
-  {
-    return this.http.delete(this.url+"/theatre/"+theatreId);
+  getAllTheatres() {
+    return this.http.get<Theatre[]>(this.url + "/theatre/list");
   }
 
-  getAllCities()
-  {
-    return this.http.get<City[]>(this.url+"/city/list");
+  deleteTheatreById(theatreId) {
+    return this.http.delete(this.url + "/theatre/" + theatreId);
   }
 
-  addTheatre(theatre: Theatre)
-  {
-    return this.http.post(this.url+"/theatre", theatre);
+  getAllCities() {
+    return this.http.get<City[]>(this.url + "/city/list");
   }
 
-  getCityById(cityId)
-  {
-    return this.http.get<City>(this.url+"/city/"+cityId);
+  addTheatre(theatre: Theatre) {
+    return this.http.post(this.url + "/theatre", theatre);
   }
 
-  addCity(city: City)
-  {
-    return this.http.post(this.url+"/city", city);
+  getCityById(cityId) {
+    return this.http.get<City>(this.url + "/city/" + cityId);
   }
 
-  updateTheatre(theatre: Theatre)
-  {
-    return this.http.put(this.url+"/theatre/edit/"+theatre.theatreId, theatre);
+  addCity(city: City) {
+    return this.http.post(this.url + "/city", city);
+  }
+
+  updateTheatre(theatre: Theatre) {
+    return this.http.put(this.url + "/theatre/edit/" + theatre.theatreId, theatre);
   }
 }
