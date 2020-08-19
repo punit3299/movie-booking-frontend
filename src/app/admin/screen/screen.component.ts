@@ -92,4 +92,10 @@ export class ScreenComponent implements OnInit {
   {
     this.route.navigate(["admin","addShow",screenId,this.theatreId]);
   }
+
+  
+  viewScreenShows(screenId:number)
+  {
+    this.route.navigate(["admin","viewShow",screenId,this.theatreId]);
+  }
 }

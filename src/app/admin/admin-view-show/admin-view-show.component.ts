@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/shared/services/admin/admin.service';
 import { Show } from 'src/app/shared/models/show.model';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view-show',
@@ -12,20 +13,27 @@ export class AdminViewShowComponent implements OnInit {
 
  
   theatreId:number;
+  screenId:number;
   
   shows:Show[]=[];
   
-  constructor(private adminService:AdminService,private toaster:ToastrService) 
+  constructor(private adminService:AdminService,private toaster:ToastrService ,private route:ActivatedRoute) 
   {
     
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params=>{
+      this.theatreId = params['theatreId']
+      this.screenId=params['screenId']
+      this.viewShows(this.theatreId,this.screenId);
+    });
+
   }
 
-  onSubmit(theatreId)
+  viewShows(theatreId,screenId)
   {
-    this.adminService.findAllShows(theatreId)
+    this.adminService.findAllShows(theatreId,screenId)
    .subscribe(data=>this.shows=data);
   }
 

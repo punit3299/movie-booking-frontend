@@ -2,18 +2,15 @@
 <form #userForm="ngForm" (ngSubmit)="onSubmit(theatreId)" novalidate>   
     <div class="form-row" >
         <div class="form-group col-md-4">
-          <label>Enter Theatre Id:</label>
+          <label>Theatre Id</label>
           <input type="number" required name="thearteId1" #thearte="ngModel"
-          [(ngModel)]="theatreId"
+          [(ngModel)]="theatreId" readonly
           class="form-control"
              pattern="^(?:[1-9]|0[1-9]|10)$"
             placeholder="Theatre Id">
         </div>
         <div class="col-md-4">
-          <button [disabled]="userForm.form.invalid" class="btn btn-success btn-lg" style="margin-top:30px ;"> 
-            View Shows
-          </button>
-          </div>
+       </div>
   </div>
     
 </form>
@@ -34,7 +31,6 @@
     
      <tbody>
          <tr class="row-details" *ngFor="let show of shows"> 
-            
          <td>{{show.theatreName}}</td>
          <td>{{show.screenName}}</td>
          <td>{{show.showId}}<br>{{show.showName}}</td>
