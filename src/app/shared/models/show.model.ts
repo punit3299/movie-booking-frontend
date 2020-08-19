@@ -1,14 +1,14 @@
-import { Theatre } from './theatre.model';
-import { Screen } from './screen.model';
 import { Movie } from './movie.model';
+import { Theatre } from './theatre.model';
 
 export class Show {
-    showId;
-    showStartTime;
-    showEndTime;
-    showName;
-    status;
-    theatre:Theatre;
-    screen:Screen;
-    movie:Movie;
+    showId:number;
+    showName:String;
+    showStartTime:String;
+    showEndTime:String;
+    showLanguage:String;
+    theatreId:number;
+    movieName:String;
+    screenName:String;
+    theatreName:String;
 }

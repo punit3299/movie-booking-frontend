@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/shared/services/admin/admin.service';
 import { Theatre } from 'src/app/shared/models/theatre.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,7 +21,7 @@ export class ScreenComponent implements OnInit {
   addScreenForm: FormGroup
   submitted: boolean = false;
   submitted2: boolean = false;
-  constructor(private route1: ActivatedRoute, private service: AdminService, private formBuilder: FormBuilder) {
+  constructor(private route1: ActivatedRoute, private service: AdminService, private formBuilder: FormBuilder ,private route:Router) {
     this.updateNoOfSeatsForm = this.formBuilder.group({
       updatedNoOfSeats: ['', Validators.required]
     })
@@ -86,5 +86,10 @@ export class ScreenComponent implements OnInit {
         this.screens = data;
         this.ngOnInit
       })
+  }
+
+  add(screenId:number)
+  {
+    this.route.navigate(["admin","addShow",screenId,this.theatreId]);
   }
 }

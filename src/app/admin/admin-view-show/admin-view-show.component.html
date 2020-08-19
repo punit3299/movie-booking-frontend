@@ -1,0 +1,53 @@
+<div class="container">
+<form #userForm="ngForm" (ngSubmit)="onSubmit(theatreId)" novalidate>   
+    <div class="form-row" >
+        <div class="form-group col-md-4">
+          <label>Enter Theatre Id:</label>
+          <input type="number" required name="thearteId1" #thearte="ngModel"
+          [(ngModel)]="theatreId"
+          class="form-control"
+             pattern="^(?:[1-9]|0[1-9]|10)$"
+            placeholder="Theatre Id">
+        </div>
+        <div class="col-md-4">
+          <button [disabled]="userForm.form.invalid" class="btn btn-success btn-lg" style="margin-top:30px ;"> 
+            View Shows
+          </button>
+          </div>
+  </div>
+    
+</form>
+
+<div class="div-table">
+    <table  class="table table-hover">
+      <thead style="background-color:#524361; color: white; text-align: center;"> 
+      <tr>
+       <th>Theatre</th>
+       <th>Screen</th>
+       <th>Show</th>
+       <th>Movie</th>
+       <th>Language</th>
+       <th> Show Time</th>
+       <th></th>
+      </tr>
+      </thead>
+    
+     <tbody>
+         <tr class="row-details" *ngFor="let show of shows"> 
+            
+         <td>{{show.theatreName}}</td>
+         <td>{{show.screenName}}</td>
+         <td>{{show.showId}}<br>{{show.showName}}</td>
+         <td>{{show.movieName}}</td>
+         <td>{{show.showLanguage}}</td>
+         <td>{{show.showStartTime | date:'medium'}} <br> {{show.showEndTime | date:'medium'}}</td>
+        <td><button class="btn btn-success" 
+          (click)="deleteShow(show.showId)">Remove
+        </button>
+        </td>
+        </tr>
+     </tbody>  
+   </table>
+
+</div>
+</div>

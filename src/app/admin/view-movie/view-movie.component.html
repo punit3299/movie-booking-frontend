@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <h1>Movies</h1>
+      <p>Full list of movies</p>
+      <input  type="text" placeholder="find movie" style="border-radius: 5px; border-color: white;"
+       [(ngModel)]="searchMovie">
+    </div>
+  
+   
+<div class="div-table">
+    <table  class="table table-hover">
+     <tbody>
+         <tr class="row-details" *ngFor="let movie of movies | movieSearch:searchMovie">  
+         <td>{{movie.movieId}}</td>
+         <td>{{movie.movieName}}</td>
+         <td>{{movie.movieReleaseDate | date:'medium'}} <br> {{movie.movieGenre}}</td>
+         <td>{{movie.movieLength}}</td>
+         <td>{{movie.languages}}</td>
+         <td>{{movie.movieDirectorName}}</td>
+         <td><div><b>Rating : {{movie.movieRating}}</b></div></td>
+        <td>
+            <button class="btn btn-primary"(click)="deleteMovie(movie.movieId)">Remove
+            </button>
+        </td>
+    </tr>
+     </tbody>  
+   </table>
+   </div>
+</div>

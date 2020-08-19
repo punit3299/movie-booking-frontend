@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="row">
+    <h1>Movie</h1>
+    <p>The following movie details are required.</p>
+  </div>
+  <br>
+  <div class="alert alert-danger" *ngIf="movieErrorInfo!=undefined">{{movieErrorInfo}}</div>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(movie)" novalidate>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Movie Name</label>
+        <input type="text" required #movieName="ngModel" [class.is-invalid]="movieName.invalid && movieName.touched"
+          pattern="[a-zA-Z 0-9]*" class="form-control" placeholder="Movie Name" name="movieName1"
+          [(ngModel)]="movie.movieName">
+        <div *ngIf="movieName.errors && (movieName.invalid && movieName.touched)">
+          <small class="text-danger" *ngIf="movieName.errors.required">Movie name is required</small>
+          <small class="text-danger" *ngIf="movieName.errors.pattern">Movie name must only contain alphabets and
+            numbers.</small>
+        </div>
+      </div>
+
+
+      <div class="form-group col-md-6">
+        <label>Director Name</label>
+        <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched"
+          pattern="[a-zA-Z ]*" class="form-control" placeholder="Director Name" name="userName"
+          [(ngModel)]="movie.movieDirector">
+        <div *ngIf="name.errors && (name.invalid && name.touched)">
+          <small class="text-danger" *ngIf="name.errors.required">Director name is required</small>
+          <small class="text-danger" *ngIf="name.errors.pattern">Director name should only contain alphabets</small>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label>Genre</label>
+        <select class="form-control" name="movieGenre"
+         #genre="ngModel" [(ngModel)]="movie.movieGenre" required>
+          <option value='Genre' enabled selected hidden>Genre</option>
+          <option value='Action'>Action</option>
+          <option value='Adventure'>Adventure</option>
+          <option value='Romance'>Romance</option>
+          <option value='Comedy'>Comedy</option>
+          <option value='Thriller'>Thriller</option>
+          <option value='Horror'>Horror</option>
+          <option value='Drama'>Drama</option>
+          <option value='Mystery'>Mystery</option>
+        </select>
+        <div *ngIf="genre.errors && (genre.invalid && genre.touched)">
+          <small class="text-danger" *ngIf="genre.errors.required">
+            Please Select Genre.
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Movie Release Date</label>
+        <input type="datetime-local" required #dateOfRelease="ngModel"
+          [class.is-invalid]="dateOfRelease.invalid && dateOfRelease.touched" class="form-control" name="dateOfRelease1"
+          [(ngModel)]="movie.movieReleaseDate"  [max]="maxDate">
+        <div *ngIf="dateOfRelease.errors && (dateOfRelease.invalid && dateOfRelease.touched)">
+          <small class="text-danger" *ngIf="dateOfRelease.errors.required">
+            Movie release date is required</small>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-12" style="display: inline-flex;">
+        <label>Choose Language :</label> 
+        <div *ngFor="let obj of Language" style="margin-left: 10px;">
+          <input type="checkbox" value="{{obj.value}}" 
+           (change)="languageChange($event)" required>
+          {{obj.key}}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-4">
+        <label>Movie Rating</label>
+        <input type="text" required #movieRating="ngModel"
+          [class.is-invalid]="movieRating.invalid && movieRating.touched" class="form-control"
+          pattern="^(?:[1-9]|0[1-9]|10)$" placeholder="Movie Rating" name="movieRating1"
+          [(ngModel)]="movie.movieRating">
+        <div *ngIf="movieRating.errors && (movieRating.invalid && movieRating.touched)">
+          <small class="text-danger" *ngIf="movieRating.errors.required">
+            Movie rating is required.</small>
+          <small class="text-danger" *ngIf="movieRating.errors.pattern">Movie rating should be between 1 and 10</small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Movie Length</label>
+        <input type="text" required #movieLength="ngModel" pattern="^[1-9][0-9]*$"
+          [class.is-invalid]="movieLength.invalid && movieLength.touched" class="form-control"
+          placeholder="Movie Length" name="movieLength" [(ngModel)]="movie.movieLength">
+
+        <div *ngIf="movieLength.errors && (movieLength.invalid && movieLength.touched)">
+          <small class="text-danger" *ngIf="movieLength.errors.required">Movie Length is required</small>
+          <small class="text-danger" *ngIf="movieLength.errors.pattern">movieLength should be greater than zero</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6">
+        <button [disabled]="userForm.form.invalid" class="btn btn-success btn-lg">
+          Add Movie
+        </button>
+
+        <button class="btn btn-primary btn-lg" type="reset" value="Reset"style="margin-left:20px; font-weight: bold;">
+        Reset
+        </button>
+
+      </div>
+    </div>
+  </form>
+</div>
