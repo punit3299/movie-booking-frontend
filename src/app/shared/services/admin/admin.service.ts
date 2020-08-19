@@ -9,7 +9,7 @@ import { Theatre } from '../../models/theatre.model';
 import { City } from '../../models/city.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  // that we want to provide a service at root level
 })
 export class AdminService {
 
