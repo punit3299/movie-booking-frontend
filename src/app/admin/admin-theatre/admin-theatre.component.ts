@@ -18,6 +18,7 @@ export class AdminTheatreComponent implements OnInit {
   cities: City[]=[];
   cityId: number;
   submitted: boolean=false;
+  updateSubmitted: boolean=false;
 
 
   constructor(private adminService: AdminService, private router: Router, private formBuilder: FormBuilder) { }
@@ -112,9 +113,14 @@ export class AdminTheatreComponent implements OnInit {
 
   updateTheatreMethod()
   {
+    this.updateSubmitted=true;
+    if(this.updateTheatre.invalid)
+    {
+      return;
+    }
     console.log(this.updateTheatre.value);
     this.adminService.updateTheatre(this.updateTheatre.value).subscribe(
-      data=>{alert("Theatre updated Successfully"); this.getAllTheatres();},
+      data=>{alert("Theatre updated Successfully"); this.getAllTheatres(); console.log(data);},
       err=>{console.log(err.error.message);}
     );
 

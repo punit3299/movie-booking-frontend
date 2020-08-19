@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "movie-booking-frontend"
+    }
+  },
+  "defaultProject": "movie-booking-frontend",
+  "cli": {
+    "analytics": "93c1fb6e-ebd8-44ab-be92-55c13cd4c091"
+  }
 }

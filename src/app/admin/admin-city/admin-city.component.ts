@@ -36,7 +36,7 @@ export class AdminCityComponent implements OnInit {
   {
     this.adminService.addCity(this.city.value).subscribe(
       data=>{console.log(data); this.getAllCities()},
-      err=>{console.log(err.error.message);}
+      err=>{console.log(err.error.message); alert(err.error.message)}
     );
   }
 
