@@ -1,0 +1,126 @@
+.show{
+    background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+    border: solid;
+    border-color: black;
+    height: 610px;
+}
+
+.dbox{
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
+    position: relative;
+    border: solid;
+    border-color: black;
+    border-left: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    width: 200px;
+    height: 604px;
+    
+}
+.nextCol{
+     margin-left: 5%;
+      margin-top: 2%;
+       width: 350px; 
+       height: 25px; 
+}
+.h5{
+    text-align: center;
+    text-size-adjust: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30%;
+    margin-top: 5%;
+    border-radius: 25px;
+    border: solid;
+    border-color: black;
+    height: 5%;
+    width: 50%;
+    
+}
+.screenSize{
+    text-align: center;
+    text-size-adjust: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20%;
+    margin-top: 5%;
+    border-radius: 25px;
+    border: solid;
+    border-color: black;
+    height: 5%;
+    width: 70%;
+}
+
+.movieBox{
+    text-align: center;
+    text-size-adjust: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    margin-top: 60%;
+    border-radius: 25px;
+    border: solid;
+    border-color: black;
+    height: auto;
+    width: 95%;
+}
+.dateBox{
+    text-align: center;
+    text-size-adjust: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    margin-top: 20%;
+    border-radius: 25px;
+    border: solid;
+    border-color: black;
+    height: auto;
+    width: 95%;
+}
+.timeBox{
+    text-align: center;
+    text-size-adjust: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    margin-top: 20%;
+    border-radius: 25px;
+    border: solid;
+    border-color: black;
+    height: auto;
+    width: 95%;
+}
+
+.seatBox{
+    height:30px;
+    width:37px;
+    text-align: center;
+    vertical-align:middle;
+}
+.bookSeat{
+    text-align: center;
+    text-size-adjust: initial;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 3%;
+    margin-top: 20%;
+    border-radius: 25px;
+    height: auto;
+    width: 95%;
+}
+.bookedButton{
+                background: url(/assets/images/bookedSeat.jpeg) no-repeat;
+                cursor:pointer;
+                border: none;
+                width: 35px;
+                height: 35px;
+                background-size: 35px 35px;
+            }
+.vacantButton{
+                background: url(/assets/images/vacantSeat.jpeg) no-repeat;
+                cursor:pointer;
+                border: none;
+                 width: 35px;
+                height: 35px;
+                background-size: 35px 35px;
+}
+                
+
