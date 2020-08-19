@@ -7,6 +7,7 @@ export class Show {
     showStartTime:String;
     showEndTime:String;
     showLanguage:String;
+    
     theatreId:number;
     movieName:String;
     screenName:String;

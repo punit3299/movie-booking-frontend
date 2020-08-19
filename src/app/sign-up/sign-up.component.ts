@@ -55,7 +55,7 @@ export class SignUpComponent implements OnInit {
           else {
             this.customerService.addCustomer(this.registerForm.value).subscribe(data => {
               this.customerService.customer=data;
-              localStorage.setItem("CustomerId", this.registerForm.controls.email.value);
+              localStorage.setItem("userId", this.registerForm.controls.email.value);
               this.router.navigateByUrl('/customer');
               this.toastrService.success("Welcom " + this.customerService.customer.customerName);
             })

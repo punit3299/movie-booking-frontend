@@ -1,0 +1,39 @@
+<body>
+    <app-top-navbar></app-top-navbar>
+    <div class="heavy-rain-gradient">
+
+        <div class="text-white">
+            <h4 class="h3 mt-5 ml-5"><i style="font-size-adjust:20% ;"><input id="showInput" class="input-group-text"
+                        (keyup)="applyFilter($event)" placeholder="Search "></i></h4>
+            <div *ngFor="let booking of bookings">
+                <div class="card m-5" *ngIf="booking.status">
+                    <div class="card-header d-flex">
+                        <div><strong>Booking Id- <i>{{booking.bookingId}}</i></strong></div>
+                        <div class="mx-5"><strong>Date of Booking- <i>{{booking.bookingDate | date:"MM/dd/yy"}}</i></strong></div>
+                        <div>
+                            <button class="btn btn-danger" (click)=cancelTicket(booking)>Cancel Ticket</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="my-2"><strong> Movie- <i>{{booking.movie}}</i></strong></div>
+                        <h6 class="card-title text-c"> <strong>Show Id- <i>{{booking.show.showId}}</i>
+                               <span class="mx-5"> Seats- <i>{{booking.ticket.seatName}}</i></span>
+                                Screen Name- <i>{{booking.ticket.screenName}}</i> </strong></h6>
+                        <h6 class="card-title text-c"><strong>Show Start Time-
+                                <i class="mr-5">{{booking.show.showStartTime|date:'short'}}</i>
+
+                               <div class="mt-2"> Theatre - <i>{{booking.show.theatre.theatreName}}</i></div>
+                            </strong></h6>
+                        <h6 class="card-title text-c"> <strong>Total Cost- <i>{{booking.totalCost|currency:'IND'}}</i>
+                            </strong></h6>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                    </div>
+
+                </div><br>
+                <br>
+            </div>
+        </div>
+        </div>
+</body>
+<app-bottom-navbar></app-bottom-navbar>

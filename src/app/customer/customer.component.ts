@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../shared/services/customer/customer.service';
 import { tick } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -9,18 +10,16 @@ import { tick } from '@angular/core/testing';
 })
 export class CustomerComponent implements OnInit {
 
-  constructor(private customerService:CustomerService) { }
+  constructor(private customerService:CustomerService,private router:Router) { }
 
   ngOnInit() {
+    if(localStorage.getItem("userId")==null){
+      this.router.navigateByUrl('/home/login');
+    }
+    else if(localStorage.getItem("role")=="ROLE_ADMIN"){
+      this.router.navigateByUrl('/admin');
+    }
   }
-  customerId:number
-  ticket:any
 
-  cancelTicket(){
-    this.customerService.cancelTicket(this.customerId,this.ticket).subscribe(data=>{
-      console.log(data);
-      this.ticket=data;
-    })
-  }
 
 }

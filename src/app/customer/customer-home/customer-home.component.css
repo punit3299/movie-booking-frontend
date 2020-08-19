@@ -26,6 +26,10 @@
 .movies{
     height: 500px;
 }
+.movies .h-100:hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 10px #FF66F5;
+}
 .movies .h-100:nth-child(1){
     background-image: url('src/assets/images/nowPlaying1.jpg');
 }

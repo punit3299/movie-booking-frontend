@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
   todaysDate = new Date();
 
-  constructor() {
+  constructor(private router:Router,private toastrService:ToastrService) {
 
     // clock
     setInterval(() => {
@@ -18,10 +20,18 @@ export class AdminComponent implements OnInit {
   } 
 
   ngOnInit() {
+    if(localStorage.getItem("userId")==null){
+      this.router.navigateByUrl('/home/login');
+    }
+    else if(localStorage.getItem("role")=="ROLE_CUSTOMER"){
+      this.router.navigateByUrl("/customer");
+    }
   }
 
   logOut(){
-    
+    localStorage.removeItem("userId");
+    this.toastrService.warning("See You Soon !");
+    this.router.navigateByUrl('/home/login');
   }
 
 }

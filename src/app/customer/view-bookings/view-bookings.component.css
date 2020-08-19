@@ -1,0 +1,20 @@
+body{
+    background-image: url('src/assets/images/background.jpg');
+    background-repeat: no-repeat;
+}
+.card{
+     background-color: rgba(12,59,87,0.7);
+     width: 40%;
+    
+}
+#showInput{
+   background-color: rgba(55,2,20,0.7);
+}
+i{
+    color: yellow;
+    font-size: 20px;
+}
+.card-title i{
+    color: greenyellow;
+    
+}

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       else if(this.role=="customer"){
         this.customerService.getCustomer(this.loginForm.controls.email.value).subscribe(data=>{
 
-          localStorage.setItem("CustomerId",this.loginForm.controls.email.value);
+          localStorage.setItem("userId",this.loginForm.controls.email.value);
           this.customer=data;
           this.router.navigateByUrl('/customer');
           this.toastrService.success("Welcom "+this.customer.customerName);

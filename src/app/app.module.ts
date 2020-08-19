@@ -35,6 +35,7 @@ import { BookSeatComponent } from './customer/book-seat/book-seat.component';
 
 import { SearchTheatrePipe } from './shared/pipe/search-theatre.pipe';
 import { SearchCityPipe } from './shared/pipe/search-city.pipe';
+import { ViewBookingsComponent } from './customer/view-bookings/view-bookings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { SearchCityPipe } from './shared/pipe/search-city.pipe';
     AdminCityComponent,
     BookSeatComponent,
     SearchTheatrePipe,
-    SearchCityPipe
+    SearchCityPipe,
+    ViewBookingsComponent
 
   ],
   imports: [

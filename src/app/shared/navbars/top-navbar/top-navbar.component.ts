@@ -21,7 +21,7 @@ export class TopNavbarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.customerService.getCustomer(localStorage.getItem("CustomerId")).subscribe(data=>{
+    this.customerService.getCustomer(localStorage.getItem("userId")).subscribe(data=>{
       this.customer=data;
     })
   }
@@ -62,7 +62,8 @@ export class TopNavbarComponent implements OnInit {
    }
   }
   logOut(){
-    localStorage.removeItem("CustomerId");
+    localStorage.removeItem("userId");
+    this.toastService.warning("See You Soon !");
     this.router.navigateByUrl('/home/login');
   }
 

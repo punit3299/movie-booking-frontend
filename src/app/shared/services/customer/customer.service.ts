@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 import { BookedDetailsOfTicket } from '../../models/booked-details-of-ticket.model';
 
 import { Credentials } from '../../models/credentials.model';
+import { Bookings } from '../../models/bookings.model';
+import { Booking } from '../../models/booking.model';
 
 
 @Injectable({
@@ -74,9 +76,13 @@ export class CustomerService {
     return this.http.post(this.url+"/validateCredential",credentials,{ responseType: 'text' as 'json' });
   }
 
-  saveCustomer(detail:any){
-    this.customer=detail;
+  getPreviousBookings(customerId:number):Observable<Bookings[]>
+  {
+    return this.http.get<Bookings[]>(this.url+"/booking/all/"+customerId);
+  }
 
+  getBooking(bookingId:number){
+    return this.http.get<Booking>(this.url+"/booking/"+bookingId);
   }
 
 
