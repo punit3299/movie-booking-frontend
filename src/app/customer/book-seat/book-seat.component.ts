@@ -128,7 +128,7 @@ export class BookSeatComponent implements OnInit {
     this.bookingTicketDetails.showDate = showdate;
     this.customerService.bookTicket(this.bookingTicketDetails).subscribe(data => {
       this.bookedDetails = data;
-        this.toaster.success("Your Ticket has been successfully booked ");
+      this.toaster.success("Your Ticket has been booked successfully");
     });
 
 
