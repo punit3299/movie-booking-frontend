@@ -29,7 +29,9 @@ import { ToastrModule, ToastrService, Overlay, OverlayContainer } from 'ngx-toas
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
-import { AdminCityComponent } from './admin/admin-city/admin-city.component'
+import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+import { SearchTheatrePipe } from './shared/pipe/search-theatre.pipe';
+import { SearchCityPipe } from './shared/pipe/search-city.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +56,9 @@ import { AdminCityComponent } from './admin/admin-city/admin-city.component'
     AdminBookingsComponent,
     SearchBookingPipe,
     AdminTheatreComponent,
-    AdminCityComponent
+    AdminCityComponent,
+    SearchTheatrePipe,
+    SearchCityPipe
   ],
   imports: [
     BrowserModule,

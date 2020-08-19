@@ -19,6 +19,7 @@ export class AdminTheatreComponent implements OnInit {
   cityId: number;
   submitted: boolean=false;
   updateSubmitted: boolean=false;
+  searchText:string;
 
 
   constructor(private adminService: AdminService, private router: Router, private formBuilder: FormBuilder) { }

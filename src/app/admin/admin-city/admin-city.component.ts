@@ -15,6 +15,7 @@ export class AdminCityComponent implements OnInit {
   cities:City[]=[];
   city: FormGroup;
   submitted: boolean=false;
+  searchText: string;
 
   ngOnInit() {
     this.getAllCities();
