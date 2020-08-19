@@ -16,6 +16,12 @@
                                 formControlName="cityName" />
                     <button class="btn btn-primary">Add City</button>            
                 </div>
+                <span class="text-danger" *ngIf="(city.controls.cityName.touched || Submitted) && city.controls.cityName.errors?.required">
+                    Required field !
+                </span>
+                <span class="text-danger" *ngIf="city.controls.cityName.touched && city.controls.cityName.errors?.pattern">
+                    Enter a valid city
+                </span>
             </form>
         </div>
     </div>

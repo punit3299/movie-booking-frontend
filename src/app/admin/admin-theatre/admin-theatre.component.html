@@ -72,33 +72,36 @@
                         <div class="col-6 d-block">
                             <input type="text" class=" form-control" formControlName="theatreName">
 
-                            <div *ngIf="submitted && addTheatre.controls.theatreName.errors">
-                                <div class="text-danger" *ngIf="addTheatre.controls.theatreName.errors.required">
-                                    Required field !
-                                </div>
-                            </div>
+                            <span class="text-danger" *ngIf="(addTheatre.controls.theatreName.touched || submitted) && addTheatre.controls.theatreName.errors?.required">
+                                Required field !
+                            </span>
+                            <span class="text-danger" *ngIf="addTheatre.controls.theatreName.touched && addTheatre.controls.theatreName.errors?.pattern">
+                                Enter a valid Name
+                            </span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class=" col-6 font-weight-bold">Manager Name : </label>
                         <div class="col-6 d-block">
                             <input type="text" class="form-control" formControlName="managerName">
-                            <div *ngIf="submitted && addTheatre.controls.managerName.errors">
-                                <div class="text-danger" *ngIf="addTheatre.controls.managerName.errors.required">
-                                    Required required !
-                                </div>
-                            </div>
+                            <span class="text-danger" *ngIf="(addTheatre.controls.managerName.touched || submitted) && addTheatre.controls.managerName.errors?.required">
+                                Required field !
+                            </span>
+                            <span class="text-danger" *ngIf="addTheatre.controls.managerName.touched && addTheatre.controls.managerName.errors?.pattern">
+                                Enter a valid Name
+                            </span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-6 font-weight-bold">Manager contact : </label>
                         <div class="col-6 d-block">
                             <input type="text" class="form-control" formControlName="managerContact">
-                            <div *ngIf="submitted && addTheatre.controls.managerContact.errors">
-                                <div class="text-danger" *ngIf="addTheatre.controls.managerContact.errors.required">
-                                    Required field !
-                                </div>
-                            </div>
+                            <span class="text-danger" *ngIf="(addTheatre.controls.managerContact.touched || submitted) && addTheatre.controls.managerContact.errors?.required">
+                                Required field !
+                            </span>
+                            <span class="text-danger" *ngIf="addTheatre.controls.managerContact.touched && addTheatre.controls.managerContact.errors?.pattern">
+                                Enter a Contact No.
+                            </span>
                         </div>
                     </div>
                     <div class="form-group row" formGroupName="city">
@@ -118,18 +121,15 @@
                         </div>
                     </div>
 
-
-                    <div class="form-group mb-4">
-                        <button class="btn btn-primary" [disabled]=!addTheatre.valid (click)="addNewTheatre()"
-                            data-dismiss="modal">Proceed</button>
-                    </div>
-
                 </form>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
+                <button class="btn btn-primary" [disabled]=!addTheatre.valid (click)="addNewTheatre()"
+                data-dismiss="modal">Proceed</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
             </div>
 
         </div>
@@ -160,22 +160,24 @@
                         <label class=" col-6 font-weight-bold">Manager Name : </label>
                         <div class="col-6 d-block">
                             <input type="text" class="form-control" formControlName="managerName">
-                            <div *ngIf="updateSubmitted && updateTheatre.controls.managerName.errors">
-                                <div class="text-danger" *ngIf="updateTheatre.controls.managerName.errors.required">
-                                    Required field!
-                                </div>
-                            </div>
+                            <span class="text-danger" *ngIf="(updateTheatre.controls.managerName.touched || updateSubmitted) && updateTheatre.controls.managerName.errors?.required">
+                                Required field !
+                            </span>
+                            <span class="text-danger" *ngIf="updateTheatre.controls.managerName.touched && updateTheatre.controls.managerName.errors?.pattern">
+                                Enter a valid Name
+                            </span>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-6 font-weight-bold">Manager contact : </label>
                         <div class="col-6 d-block">
                             <input type="text" class="form-control" formControlName="managerContact">
-                            <div *ngIf="updateSubmitted && updateTheatre.controls.managerContact.errors">
-                                <div class="text-danger" *ngIf="updateTheatre.controls.managerContact.errors.required">
-                                    Required field !
-                                </div>
-                            </div>
+                            <span class="text-danger" *ngIf="(updateTheatre.controls.managerContact.touched || updateSubmitted) && updateTheatre.controls.managerContact.errors?.required">
+                                Required field !
+                            </span>
+                            <span class="text-danger" *ngIf="updateTheatre.controls.managerContact.touched && updateTheatre.controls.managerContact.errors?.pattern">
+                                Enter a valid Contact
+                            </span>
                         </div>
                     </div>
 
@@ -185,16 +187,12 @@
                         <input type="text" class="form-control" formControlName="cityName" disabled>
                     </div>
                     </div>
-
-                    <div class="form-group mb-4">
-                        <button class="btn btn-primary" [disabled]=!updateTheatre.valid (click)="updateTheatreMethod()" data-dismiss="modal">Proceed</button>
-                    </div>
-
                 </form>
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
+                <button class="btn btn-primary" [disabled]=!updateTheatre.valid (click)="updateTheatreMethod()" data-dismiss="modal">Proceed</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" >Close</button>
             </div>
 
