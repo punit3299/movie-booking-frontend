@@ -3,7 +3,7 @@
         <div class="col-lg-6">
             <div class="my-4">
                 <!-- Search form -->
-                <input class="form-control" type="text" placeholder="Search Theatre" aria-label="Search">
+                <input class="form-control" type="text" placeholder="Search City" aria-label="Search" [(ngModel)]="searchText">
             </div>
         </div>
         <div class="col-md-2">
@@ -16,13 +16,19 @@
                                 formControlName="cityName" />
                     <button class="btn btn-primary">Add City</button>            
                 </div>
+                <span class="text-danger" *ngIf="(city.controls.cityName.touched || Submitted) && city.controls.cityName.errors?.required">
+                    Required field !
+                </span>
+                <span class="text-danger" *ngIf="city.controls.cityName.touched && city.controls.cityName.errors?.pattern">
+                    Enter a valid city
+                </span>
             </form>
         </div>
     </div>
 
     <div>
         <div class="row">
-            <div class="content col-sm-4" *ngFor="let city of cities;let i = index">
+            <div class="content col-sm-4" *ngFor="let city of cities | searchCity:searchText">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="../../../assets/images/city.jpg" alt="Card image cap">
                     <div class="card-block p-2">

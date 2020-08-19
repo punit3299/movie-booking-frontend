@@ -14,11 +14,13 @@ export class AdminCityComponent implements OnInit {
 
   cities:City[]=[];
   city: FormGroup;
+  submitted: boolean=false;
+  searchText: string;
 
   ngOnInit() {
     this.getAllCities();
     this.city= this.formBuilder.group({
-      cityName:['', Validators.required]
+      cityName:['', [Validators.required,Validators.pattern("^[a-zA-Z]*$")]]
     });
 
   }
@@ -34,6 +36,11 @@ export class AdminCityComponent implements OnInit {
 
   addCity()
   {
+    this.submitted=true;
+    if(this.city.invalid)
+    {
+      return;
+    }
     this.adminService.addCity(this.city.value).subscribe(
       data=>{console.log(data); this.getAllCities()},
       err=>{console.log(err.error.message); alert(err.error.message)}
