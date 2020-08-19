@@ -25,7 +25,7 @@ import { MovieSearchPipe } from './shared/pipe/movie-search.pipe';
 import { AddMovieCanDeactivateGaurdServiceService } from './shared/services/add-movie-can-deactivate-gaurd-service.service';
 import { AddShowCanDeactivateGuardService } from './shared/services/admin/add-show-can-deactivate-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastrService, Overlay, OverlayContainer } from 'ngx-toastr';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
@@ -72,7 +72,7 @@ import { AdminCityComponent } from './admin/admin-city/admin-city.component'
 
   ],
   providers: [AddMovieCanDeactivateGaurdServiceService,
-  AddShowCanDeactivateGuardService
+  AddShowCanDeactivateGuardService,ToastrService,Overlay,OverlayContainer
   ],
   bootstrap: [AppComponent]
 })

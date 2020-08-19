@@ -1,28 +1,18 @@
 <form [formGroup]= "registerForm" autocomplete="off" (submit)="onSubmit()">
     <div class="d-flex">
         <div class="form-group required">
-            <label>First Name</label>
-            <input class="form-control" formControlName="firstName">
-            <label  class="text-danger" *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.required">
+            <label>Enter Full Name</label>
+            <input class="form-control" formControlName="fullName">
+            <label  class="text-danger" *ngIf="registerForm.get('fullName').touched && registerForm.get('fullName').errors?.required">
                 Required Field
             </label>
-            <label  class="text-danger" *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.pattern">
-                Only Characters are Allowed
-            </label>
-        </div>
-        <div class="form-group required ml-3">
-            <label>Last Name</label>
-            <input class="form-control" formControlName="lastName">
-            <label  class="text-danger" *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.required">
-                Required Field
-            </label>
-            <label  class="text-danger" *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.pattern">
+            <label  class="text-danger" *ngIf="registerForm.get('fullName').touched && registerForm.get('fullName').errors?.pattern">
                 Only Characters are Allowed
             </label>
         </div>
     </div>
     <div class="form-group required">
-        <label>email</label>
+        <label>Email</label>
         <input class="form-control" formControlName="email">
         <label  class="text-danger" *ngIf="registerForm.get('email').touched && registerForm.get('email').errors?.required">
             Required Field
@@ -33,7 +23,7 @@
     </div>
     <div class="d-flex">
         <div class="form-group required">
-            <label>gender</label>
+            <label>Gender</label>
             <select class="form-control" formControlName="gender">
                 <option selected></option>
                 <option >Male</option>

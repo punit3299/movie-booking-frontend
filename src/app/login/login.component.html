@@ -2,15 +2,13 @@
     <img src="assets/images/user.png" alt="user image" class="mt-4">
     <form [formGroup]="loginForm" autocomplete="off" (submit)="onSubmit()">
         <div class="form-group required">
-            <label>Mobile No.</label>
-            <input class="form-control" formControlName="mobileNo">
-            <label class="text-danger"
-                *ngIf="loginForm.get('mobileNo').touched && loginForm.get('mobileNo').errors?.required">
+            <label>Email</label>
+            <input class="form-control" formControlName="email">
+            <label  class="text-danger" *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.required">
                 Required Field
             </label>
-            <label class="text-danger"
-                *ngIf="loginForm.get('mobileNo').touched && loginForm.get('mobileNo').errors?.pattern">
-                Mobile No. Should be 10 Digits
+            <label  class="text-danger" *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.email">
+                Invalid email
             </label>
         </div>
         <div class="form-group required">
