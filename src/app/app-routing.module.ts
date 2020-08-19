@@ -19,6 +19,8 @@ import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.co
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
 import { AdminCityComponent } from './admin/admin-city/admin-city.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ViewBookingsComponent } from './customer/view-bookings/view-bookings.component';
+import { ViewShowsComponent } from './customer/view-shows/view-shows.component';
 
 
 const routes: Routes = [
@@ -58,6 +60,8 @@ const routes: Routes = [
     path: 'customer', component: CustomerComponent,
     children: [
       { path: 'customer-home', component: CustomerHomeComponent },
+      {path :'view-bookings',component:ViewBookingsComponent},
+      {path :'view-shows',component:ViewShowsComponent},
       { path: '**', component: CustomerHomeComponent }
     ]
   },

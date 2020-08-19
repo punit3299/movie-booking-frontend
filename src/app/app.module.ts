@@ -29,7 +29,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
-import { AdminCityComponent } from './admin/admin-city/admin-city.component'
+import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+import { ViewBookingsComponent } from './customer/view-bookings/view-bookings.component';
+import { ViewShowsComponent } from './customer/view-shows/view-shows.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +56,9 @@ import { AdminCityComponent } from './admin/admin-city/admin-city.component'
     AdminBookingsComponent,
     SearchBookingPipe,
     AdminTheatreComponent,
-    AdminCityComponent
+    AdminCityComponent,
+    ViewBookingsComponent,
+    ViewShowsComponent
   ],
   imports: [
     BrowserModule,

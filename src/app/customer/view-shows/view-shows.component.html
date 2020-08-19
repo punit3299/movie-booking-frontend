@@ -1,0 +1,63 @@
+<body>
+    <app-top-navbar></app-top-navbar>
+    <div>
+           
+            <div class="input-group mb-2 col-lg-6">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Select City</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div>
+              <h4 class="h3  col-md-5"><i style="font-size-adjust:20% ;"><input id="showInput" class="input-group-text" (keyup)="applyFilter($event)" placeholder=" movie or theatre"></i></h4>
+            </div>
+        
+          <label class="mdb-main-label">Label example</label>
+        <section class="text-center">
+           
+            <p class="grey-text mb-5 mt-5 px-3"></p>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-12 mb-4" *ngFor="let show of shows">
+                    <div clas="heavy-rain-gradient"> <img src="\assets\images\{{show.showId}}.jpg"
+                            class=" img-responsive " alt="Example photo"></div>
+
+                   
+                    <div class="card testimonial-card">
+                       
+                        <div class=" max-width: 100%">
+                        </div>
+
+                        <div class="card-body">
+                            
+                            <h4 class="card-title mt-1"> <strong>{{show.movie.movieName}}</strong></h4>
+                            <hr>
+                            <p>On- {{show.showStartTime | date:'short'}}<br>
+                                End at-{{show.showEndTime | date:'short'}} <br><br>Theatre- {{show.theatre.theatreName }}  </p>
+                         
+                            <p><i class="fas fa-quote-left"></i> Neque cupiditate assumenda in maiores repudiandae
+                                mollitia architecto.</p>
+
+                            <a href="#" class="btn btn-primary blue-gradient">Book the show</a>
+
+                        </div>
+
+                    </div>
+                   
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </div>
+</body>

@@ -1,0 +1,9 @@
+body{
+    background-image: url('src/assets/images/background.jpg');
+    background-repeat: no-repeat;
+}
+#showInput{
+    background-image: url('src/assets/images/searchIcon.png');
+    background-repeat: no-repeat;
+    background-size:40px 40px;
+}
