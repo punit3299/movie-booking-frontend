@@ -106,16 +106,7 @@ export class AdminService {
   getRecentThreeBookings(){
     return this.http.get<Booking[]>(this.url+"/recentThreeBookings");
    }
-  deleteShow(showId: number): Observable<any> {
-    return this.http.delete(this.url + "/theatre/screen/" + showId);
-  }
-  getAllBookings() {
-    return this.http.get<Booking[]>(this.url + "/bookings");
-  }
-
-  getRecentThreeBookings() {
-    return this.http.get<Booking[]>(this.url + "/recentThreeBookings");
-  }
+ 
 
   deleteBookingById(bookingId) {
     return this.http.delete(this.url + "/deleteBooking/" + bookingId);
