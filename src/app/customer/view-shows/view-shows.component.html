@@ -36,11 +36,11 @@
 
                         <div class="card-body">
                             
-                            <h4 class="card-title mt-1"> <strong>{{show.movie.movieName}}</strong></h4>
+                            <h4 class="card-title mt-1"> <strong>{{show.showName}}</strong></h4>
                             <hr>
                             <p>On- {{show.showStartTime | date:'short'}}<br>
                                 End at-{{show.showEndTime | date:'short'}} <br><br>Theatre- {{show.theatre.theatreName }}  </p>
-                         
+                                <h6 > <strong>{{show.theatre.city.cityName}}</strong></h6>
                             <p><i class="fas fa-quote-left"></i> Neque cupiditate assumenda in maiores repudiandae
                                 mollitia architecto.</p>
 
@@ -61,3 +61,4 @@
 
     </div>
 </body>
+<app-bottom-navbar></app-bottom-navbar>

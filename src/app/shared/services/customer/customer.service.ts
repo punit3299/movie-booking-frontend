@@ -4,15 +4,16 @@ import { Ticket } from '../../models/ticket.model';
 import { Transaction } from '../../models/transaction.model';
 import { Customer } from '../../models/customer.model';
 import { Observable } from 'rxjs';
-import { Booking } from '../../models/booking.model';
 import { Show } from '../../models/show.model';
+import { Bookings } from '../../models/bookings.model';
+import { Shows } from '../../models/shows.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  url: string = "http://localhost:8084/customer";
+  url: string = "http://localhost:8083/customer";
   constructor(private http:HttpClient) { }
 
   cancelTicket(customerId:number,ticket:any){
@@ -28,14 +29,14 @@ export class CustomerService {
   }
 
     
-  getPreviousBookings(customerId:number):Observable<Booking[]>
+  getPreviousBookings(customerId:number):Observable<Bookings[]>
   {
-    return this.http.get<Booking[]>(this.url+"/booking/all/"+customerId);
+    return this.http.get<Bookings[]>(this.url+"/booking/all/"+customerId);
   }
 
-  getAllShows():Observable<Show[]>
+  getAllShows():Observable<Shows[]>
   {
-return this.http.get<Show[]>(this.url+"/show/all");
+return this.http.get<Shows[]>(this.url+"/show/all");
   }
   getShowsByCityId(cityId:any):Observable<Show[]>
   {

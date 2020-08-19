@@ -9,6 +9,6 @@ export class Booking{
 	movie;
     status;
     transaction:Transaction;
-    ticekt:Ticket;
+    ticket:Ticket;
     show:Show;
 }

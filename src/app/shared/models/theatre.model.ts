@@ -9,3 +9,4 @@ export class Theatre{
     status;
     city:City;
 }
+
