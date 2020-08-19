@@ -1,1 +1,24 @@
-<app-customer-home></app-customer-home>
+<div class="w-100 d-flex">
+    <div class="w-sm-50 mx-5">
+        <div class="mt-5 p-5" id="heading">
+            <h2 class="pl-4"><em class="text-white">Hi, <strong>Snap Your Tickets </strong>Welcomes you ..!</em></h2>
+        </div>
+        <div>
+            <img src="assets/images/loading.gif" alt="wallet gif" height="50%" width="50%">
+        </div>
+        
+    </div>
+    <div class="w-sm-50">
+        <div class="wrapper">
+            <div class="wrapped-div">
+                <div class="tab-header d-flex">
+                    <h2 routerLink="sign-up" routerLinkActive="active" class="w-sm-50 pb-2 ml-3">Sign Up</h2>
+                    <h2 routerLink="login" routerLinkActive="active" class="w-sm-50 pb-2 mx-5">Sign In</h2>
+                </div>
+                <div>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

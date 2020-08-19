@@ -12,11 +12,18 @@ import { ViewCustomersComponent } from './admin/view-customers/view-customers.co
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
 import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'home/login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent,
+    children:[   
+      { path: 'login', component: LoginComponent },
+      { path: 'sign-up', component: SignUpComponent},
+    ]
+},
+  
   {
     path: 'admin', component: AdminComponent,
     children: [
@@ -38,8 +45,7 @@ const routes: Routes = [
       { path: '**', component: CustomerHomeComponent }
     ]
   },
-  { path: '**', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+ 
 ];
 
 @NgModule({

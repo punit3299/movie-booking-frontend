@@ -1,0 +1,69 @@
+.w-100{
+  background-image: url('src/assets/images/movieBG.jpg'); 
+    min-height: 100vh;
+}
+#heading{
+  background-image: linear-gradient(to right,rgba(55,2,20,0.7),rgba(12,59,87,0.7));
+  border-radius: 500px;
+}
+strong{
+    color: #FF66F5;
+    font-family: Mistral;
+    font-size: 40px;
+}
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .d-flex{
+    flex-wrap: wrap;
+  }
+
+.wrapped-div {
+    padding: 4%;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background-image: linear-gradient(to right,rgba(55,2,20,0.8),rgba(12,59,87,0.8));
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    min-width: 500px;
+  }
+
+  /* Tabs */
+.tab-header{
+    text-align: center;
+}
+
+  .tab-header h2.active {
+    color: yellow;
+    border-bottom: 4px solid #fff;
+  }
+
+  .tab-header h2 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 2px solid #545d6a;
+  }
+
+  .tab-header h2:focus {
+      outline: none;
+  }
+
+  @media screen and (max-width:420px){
+    .wrapped-div{
+        min-width: 100%;
+    }
+}
+@media screen and (max-width:321px){
+  .wrapped-div{
+    min-width: 100%;
+}
+}
