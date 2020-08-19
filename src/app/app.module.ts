@@ -30,8 +30,12 @@ import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.co
 import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
 import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+
+import { BookSeatComponent } from './customer/book-seat/book-seat.component';
+import { BookedDetailsComponent } from './customer/booked-details/booked-details.component'
+
 import { SearchTheatrePipe } from './shared/pipe/search-theatre.pipe';
-import { SearchCityPipe } from './shared/pipe/search-city.pipe'
+import { SearchCityPipe } from './shared/pipe/search-city.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,8 +61,13 @@ import { SearchCityPipe } from './shared/pipe/search-city.pipe'
     SearchBookingPipe,
     AdminTheatreComponent,
     AdminCityComponent,
+
+    BookSeatComponent,
+    BookedDetailsComponent,
+
     SearchTheatrePipe,
     SearchCityPipe
+
   ],
   imports: [
     BrowserModule,

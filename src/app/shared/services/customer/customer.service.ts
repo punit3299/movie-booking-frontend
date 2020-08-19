@@ -3,7 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../../models/ticket.model';
 import { Transaction } from '../../models/transaction.model';
 import { Customer } from '../../models/customer.model';
+
+import { BookTicketDetails } from '../../models/book-ticket-details.model';
+import { Observable } from 'rxjs';
+import { BookedDetailsOfTicket } from '../../models/booked-details-of-ticket.model';
+
 import { Credentials } from '../../models/credentials.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +17,7 @@ import { Credentials } from '../../models/credentials.model';
 export class CustomerService {
 
   customer:Customer;
+  ticketDetail: BookedDetailsOfTicket;
 
 
   url: string = "http://localhost:8083/customer";
@@ -36,6 +43,25 @@ export class CustomerService {
     return this.http.put<Customer>(this.url+"/addMoney/"+amount,customer);
   }
 
+  bookedSeatArray(showId: number) {
+    let url = "http://localhost:8083/customer/show/seats/" + showId;
+    return this.http.get<number[]>(url);
+
+  }
+
+  bookTicket(ticketDetails: BookTicketDetails): Observable<any> {
+    console.log("in angular service");
+    console.log(ticketDetails);
+    let url = "http://localhost:8083/customer/bookSeat/new";
+    return this.http.post(url, ticketDetails);
+  }
+
+  showTicket(ticketDetail: BookedDetailsOfTicket) {
+
+    this.ticketDetail = ticketDetail;
+  }
+
+
   validateEmail(email:string){
     return this.http.get<boolean>(this.url+"/validateEmail/"+email);
   }
@@ -52,5 +78,6 @@ export class CustomerService {
     this.customer=detail;
 
   }
+
 
 }
