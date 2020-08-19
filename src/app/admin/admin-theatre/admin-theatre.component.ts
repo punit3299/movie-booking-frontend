@@ -84,6 +84,7 @@ export class AdminTheatreComponent implements OnInit {
     this.router.navigate(['/admin/screen', theatre.theatreId]);
   }
 
+
   addNewTheatre()
   {
     let city: City;

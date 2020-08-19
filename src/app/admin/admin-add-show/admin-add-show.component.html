@@ -4,9 +4,6 @@
     <p>fill details to add show</p>
   </div>
   <br>
-  <div class="alert alert-danger" *ngIf="showErrorInfo!=undefined">
-    {{showErrorInfo}}</div>
-
   <form #userForm="ngForm" (ngSubmit)="onSubmit(show)" novalidate>
 
     <div class="form-row">
@@ -15,12 +12,12 @@
         <label>Theatre Id</label>
         <input type="number" readonly required name="thearteId1" #thearte="ngModel" 
         [(ngModel)]="theatreId"
-          class="form-control" pattern="^(?:[1-9]|0[1-9]|10)$" placeholder="Theatre Id">
+          class="form-control" placeholder="Theatre Id">
       </div>
 
       <div class="form-group col-md-4">
         <label>Screen Id</label>
-        <input type="number" readonly  required pattern="^[1-9][0-9]*$" placeholder="screen Id" name="screenId1"
+        <input type="number" readonly  required placeholder="screen Id" name="screenId1"
           class="form-control" #screen="ngModel" [(ngModel)]="screenId">
       </div>
     </div>

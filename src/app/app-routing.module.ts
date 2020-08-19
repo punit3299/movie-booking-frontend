@@ -38,7 +38,7 @@ const routes: Routes = [
       { path: 'stats', component: AdminStatsComponent },
       { path: 'screen/:theatreId', component: ScreenComponent },
       { path: 'viewCustomers', component: ViewCustomersComponent },
-      { path: 'viewShows', component: AdminViewShowComponent },
+      { path: 'viewShow/:screenId/:theatreId', component: AdminViewShowComponent },
       {
         path: 'addShow/:screenId/:theatreId', component: AdminAddShowComponent,
         canDeactivate: [AddShowCanDeactivateGuardService]
