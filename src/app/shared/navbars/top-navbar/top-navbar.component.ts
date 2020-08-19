@@ -14,7 +14,7 @@ export class TopNavbarComponent implements OnInit {
   constructor(private customerService: CustomerService,private fb: FormBuilder) { }
 
   transactions: Array<Transaction>;
-  customer:Customer=new Customer(1160,"",0,"",0);
+  customer:Customer=new Customer(1161,"Punit Raj",7973657752,"Male",50);
 
 
   ngOnInit() {
@@ -45,9 +45,12 @@ export class TopNavbarComponent implements OnInit {
     }
    else{
     this.customerService.addMoneyToWallet(parseInt(this.amountForm.controls.amount.value),this.customer).subscribe(data=>{
+      console.log(data);
       alert(parseInt(this.amountForm.controls.amount.value)+" added to your wallet");
       this.customer=data;
-      console.log(data);
+      
+    },err=>{
+      console.log(err.error.message);
     })
    }
   }
