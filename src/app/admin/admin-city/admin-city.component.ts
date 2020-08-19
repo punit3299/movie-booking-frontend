@@ -19,7 +19,7 @@ export class AdminCityComponent implements OnInit {
   ngOnInit() {
     this.getAllCities();
     this.city= this.formBuilder.group({
-      cityName:['', [Validators.required,Validators.pattern("^[a-zA-Z]+$")]]
+      cityName:['', [Validators.required,Validators.pattern("^[a-zA-Z]*$")]]
     });
 
   }

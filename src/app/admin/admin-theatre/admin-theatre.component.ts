@@ -41,7 +41,7 @@ export class AdminTheatreComponent implements OnInit {
       theatreId: [''],
       theatreName: [''],
       theatreRating:[''],
-      managerName: ['', [Validators.required,Validators.pattern("^[a-zA-Z]+$")]],
+      managerName: ['', [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
       managerContact: ['', [Validators.required, Validators.pattern("[6-9][0-9]{9}")]],
       status:[''],
       city: this.formBuilder.group({
