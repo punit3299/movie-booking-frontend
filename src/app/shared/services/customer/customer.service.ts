@@ -9,6 +9,9 @@ import { Customer } from '../../models/customer.model';
 })
 export class CustomerService {
 
+  customer:Customer;
+
+
   url: string = "http://localhost:8083/customer";
   constructor(private http:HttpClient) { }
 
