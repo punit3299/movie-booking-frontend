@@ -45,6 +45,9 @@ a{
     color: #FF66F5;
     font-size: 20px;
 }
+.logOut{
+    cursor: pointer;
+}
 .modal-title{
     font-family: Mistral;
     font-size: 40px;

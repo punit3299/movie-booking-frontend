@@ -12,9 +12,8 @@ import { Customer } from '../shared/models/customer.model';
 })
 export class LoginComponent implements OnInit {
 
-  role:String;
+  role:any;
   customer:Customer;
-
   constructor(private fb: FormBuilder,private router: Router,private customerService:CustomerService,
     private toastrService:ToastrService) { }
 
@@ -28,20 +27,23 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this.customerService.validateCredential(this.loginForm.value).subscribe(data=>{
+      console.log(data);
       this.role=data;
       if(this.role=="admin"){
+        this.toastrService.success("Welcome Admin")
         this.router.navigateByUrl('/admin');
       }
       else if(this.role=="customer"){
-        this.router.navigateByUrl('/customer');
         this.customerService.getCustomer(this.loginForm.controls.email.value).subscribe(data=>{
+
+          localStorage.setItem("CustomerId",this.loginForm.controls.email.value);
           this.customer=data;
-          localStorage.setItem("customerID",this.customer.customerId.toString());
+          this.router.navigateByUrl('/customer');
+          this.toastrService.success("Welcom "+this.customer.customerName);
         })
       }
-      else{
-        this.toastrService.error("UserName or Password Invalid !");
-      }
+    },err=>{
+      this.toastrService.error("Invalid Email or Password");
     })
   }
 

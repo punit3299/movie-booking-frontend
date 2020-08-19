@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Ticket } from '../../models/ticket.model';
 import { Transaction } from '../../models/transaction.model';
 import { Customer } from '../../models/customer.model';
+import { Credentials } from '../../models/credentials.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class CustomerService {
   constructor(private http:HttpClient) { }
 
   addCustomer(customer:any){
-    return this.http.put<Customer>(this.url+"/addCustomer",customer);
+    return this.http.post<Customer>(this.url+"/addCustomer",customer);
   }
 
   getCustomer(email:String){
@@ -43,8 +44,13 @@ export class CustomerService {
     return this.http.get<boolean>(this.url+"/validateContactNumber/"+number);
   }
 
-  validateCredential(credential:Credential){
-    return this.http.post<String>(this.url+"/validateCredential",credential);
+  validateCredential(credentials:Credentials){
+    return this.http.post(this.url+"/validateCredential",credentials,{ responseType: 'text' as 'json' });
+  }
+
+  saveCustomer(detail:any){
+    this.customer=detail;
+
   }
 
 }
