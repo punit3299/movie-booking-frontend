@@ -27,8 +27,8 @@ export class AdminTheatreComponent implements OnInit {
     this.getAllTheatres();
     this.getAllCities();
     this.addTheatre=this.formBuilder.group({
-      theatreName: ['',  [Validators.required,Validators.pattern("^[a-zA-Z]+$")]],
-      managerName: ['',  [Validators.required,Validators.pattern("^[a-zA-Z]+$")]],
+      theatreName: ['',  [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
+      managerName: ['',  [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
       managerContact: ['', [Validators.required, Validators.pattern("[6-9][0-9]{9}")]],
       city: this.formBuilder.group({
         cityId: ['', Validators.required],
