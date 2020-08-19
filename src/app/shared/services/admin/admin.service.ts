@@ -95,17 +95,18 @@ export class AdminService {
     return this.http.get(this.url + "/" + theatreId + "/screen/show");
   }
 
-  deleteShow(showId:number):Observable<any>
+ /**  deleteShow(showId:number):Observable<any>
   {
     return this.http.delete(this.url+"/theatre/screen/"+showId);
     }
-
-    getAllBookings(){
+*/
+   /*   getAllBookings(){
       return this.http.get<Booking[]>(this.url+"/bookings");
     }  
-  getRecentThreeBookings(){
+getRecentThreeBookings(){
     return this.http.get<Booking[]>(this.url+"/recentThreeBookings");
    }
+   */
   deleteShow(showId: number): Observable<any> {
     return this.http.delete(this.url + "/theatre/screen/" + showId);
   }
