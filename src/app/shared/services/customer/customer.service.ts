@@ -8,13 +8,32 @@ import { Show } from '../../models/show.model';
 import { Bookings } from '../../models/bookings.model';
 import { Shows } from '../../models/shows.model';
 
+import { BookTicketDetails } from '../../models/book-ticket-details.model';
+
+import { BookedDetailsOfTicket } from '../../models/booked-details-of-ticket.model';
+
+import { Credentials } from '../../models/credentials.model';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
+  customer:Customer;
+  ticketDetail: BookedDetailsOfTicket;
+
+
   url: string = "http://localhost:8083/customer";
   constructor(private http:HttpClient) { }
+
+  addCustomer(customer:any){
+    return this.http.post<Customer>(this.url+"/addCustomer",customer);
+  }
+
+  getCustomer(email:String){
+    return this.http.get<Customer>(this.url+"/getCustomer/"+email);
+  }
 
   cancelTicket(customerId:number,ticket:any){
     return this.http.put<Ticket>(this.url+"/cancelTicket/"+customerId,ticket);

@@ -4,6 +4,7 @@ import { AdminService } from 'src/app/shared/services/admin/admin.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-add-show',
@@ -15,13 +16,12 @@ export class AdminAddShowComponent implements OnInit {
   screenId:number;
   theatreId:number;
   
-  constructor(private adminService:AdminService,private route:ActivatedRoute) { }
+  constructor(private adminService:AdminService,private route:ActivatedRoute, private toastr:ToastrService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
       this.theatreId = params['theatreId']
      this.screenId = params['screenId']
-     console.log(this.theatreId,this.screenId);
     });
   }
 
@@ -33,6 +33,8 @@ export class AdminAddShowComponent implements OnInit {
 
   onSubmit(show)
   {
+    show.theatreId=this.theatreId;
+    show.screenId=this.screenId;
     let temp_showStartTime = show.showStartTime;
     let temp_showEndTime = show.showEndTime;
     let showStartTime_timestamp=new Date(show.showStartTime).getTime().toString();
@@ -42,13 +44,11 @@ export class AdminAddShowComponent implements OnInit {
     show.showEndTime=showEndTime_timestamp;
     this.adminService.addShow(show) .subscribe(data=>{
       this.showErrorInfo=undefined;
-      alert("Movie added Successful");
+      this.toastr.success("Show added successfully");
     },(err: HttpErrorResponse)=>{
-      this.showErrorInfo=err.error.message;
+      this.toastr.error(err.error.message);
     });
     show.showStartTime=temp_showStartTime;
     show.showEndTime=temp_showEndTime;
   }
-
- 
 }

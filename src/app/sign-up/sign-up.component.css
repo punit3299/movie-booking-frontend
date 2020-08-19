@@ -7,7 +7,7 @@ input{
     flex-wrap: wrap;
 }
 input.form-control,input.form-control:focus,select.form-control,select.form-control>option{
-    background-color: rgba(135, 214, 66,0.5);
+    background-image: linear-gradient(to right,rgba(12,59,87,0.7),rgba(55,2,20,0.7));
     color: #fff;
     border: 1px solid rgb(251, 255, 13);
 

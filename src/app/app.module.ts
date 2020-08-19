@@ -25,13 +25,21 @@ import { MovieSearchPipe } from './shared/pipe/movie-search.pipe';
 import { AddMovieCanDeactivateGaurdServiceService } from './shared/services/add-movie-can-deactivate-gaurd-service.service';
 import { AddShowCanDeactivateGuardService } from './shared/services/admin/add-show-can-deactivate-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastrService, Overlay, OverlayContainer } from 'ngx-toastr';
 import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
 import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
 import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+
 import { ViewBookingsComponent } from './customer/view-bookings/view-bookings.component';
 import { ViewShowsComponent } from './customer/view-shows/view-shows.component'
+
+
+import { BookSeatComponent } from './customer/book-seat/book-seat.component';
+
+import { SearchTheatrePipe } from './shared/pipe/search-theatre.pipe';
+import { SearchCityPipe } from './shared/pipe/search-city.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,8 +65,15 @@ import { ViewShowsComponent } from './customer/view-shows/view-shows.component'
     SearchBookingPipe,
     AdminTheatreComponent,
     AdminCityComponent,
+
     ViewBookingsComponent,
     ViewShowsComponent
+
+    BookSeatComponent,
+    SearchTheatrePipe,
+    SearchCityPipe
+
+
   ],
   imports: [
     BrowserModule,
@@ -76,7 +91,7 @@ import { ViewShowsComponent } from './customer/view-shows/view-shows.component'
 
   ],
   providers: [AddMovieCanDeactivateGaurdServiceService,
-  AddShowCanDeactivateGuardService
+  AddShowCanDeactivateGuardService,ToastrService,Overlay,OverlayContainer
   ],
   bootstrap: [AppComponent]
 })

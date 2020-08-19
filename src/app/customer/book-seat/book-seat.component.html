@@ -1,0 +1,69 @@
+<body style="width: 100%; ">
+    <div class="container show aqua-gradient color-block">
+        <div class="row">
+            <div class="dbox">
+
+                <div class="movieBox">
+                    <div>
+                        Avengers: Endgame
+                    </div>
+                    <div>
+                        Rating: 9
+                    </div>
+                </div>
+                <div class="dateBox">
+                    <div>
+                        Date: 16/08/2020
+                    </div>
+                </div>
+                <div class="timeBox">
+                    <div>
+                        Time: 9:00AM-12:00
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success bookSeat" (click)="bookTicket()" [disabled]="bookSeatButton">Book Seat</button>
+
+            </div>
+
+            <div>
+                <div class="h5">
+                    3D PRIME RS. 365
+                </div>
+
+                <table class="nextCol">
+
+                    <tr *ngFor="let i of colArray">
+
+                        <td *ngFor="let j of rowArray let position=index" id="abc">
+
+                            <div *ngIf="checkSeat((20*(i-1)+j))">
+                                <input type="button" name="button" class="bookedButton" disabled />&nbsp;
+
+                            
+                            </div>
+                            <div *ngIf="!checkSeat((20*(i-1)+j))">
+                                <input type="button" name="button" class="vacantButton"
+                                    (click)="bookSeatNo((20*(i-1)+j))" /> &nbsp;
+
+
+                            </div>
+
+
+                        </td>
+
+                    </tr>
+
+
+
+                </table>
+
+
+
+                <div class="h5 screenSize">
+                    ALl EYES THIS SIDE
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

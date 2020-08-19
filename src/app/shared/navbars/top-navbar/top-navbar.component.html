@@ -21,7 +21,7 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn my-2 my-sm-0" type="button" data-toggle="modal" data-target="#addMoney" id="my-balance">
+      <button class="btn my-2 my-sm-0" type="button" data-toggle="modal" data-target="#addMoney" (click)="transaction()" id="my-balance">
         <i class="fa fa-credit-card" aria-hidden="true"></i>
         : Rs. {{customer.customerBalance}}</button>
     </form>
@@ -31,12 +31,12 @@
 <hr class="solid">
 <nav class="navbar bg-transaparent justify-content-between">
   <div class="social-links">
-    <a class="px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-    <a class="px-2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-    <a class="px-2"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/justickets.in" target="_blank" class="px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/justickets" target="_blank" class="px-2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://www.instagram.com/bookmyshowin/?hl=en" target="_blank" class="px-2"><i class="fa fa-instagram" aria-hidden="true"></i></a>
   </div>
   <form class="form-inline">
-    <a href=""><i class="fa fa-user-circle mx-2" id="logOut" aria-hidden="true"></i>LogOut</a>
+    <a class="text-white logOut" (click)="logOut()" ><i class="fa fa-user-circle mx-2" id="logOut" aria-hidden="true"></i>LogOut</a>
   </form>
 </nav>
 

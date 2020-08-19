@@ -4,6 +4,7 @@ import { AdminService } from 'src/app/shared/services/admin/admin.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { City } from 'src/app/shared/models/city.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-theatre',
@@ -18,17 +19,19 @@ export class AdminTheatreComponent implements OnInit {
   cities: City[]=[];
   cityId: number;
   submitted: boolean=false;
+  updateSubmitted: boolean=false;
+  searchText:string;
 
 
-  constructor(private adminService: AdminService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private adminService: AdminService, private router: Router, private formBuilder: FormBuilder, private toaster: ToastrService) { }
 
   ngOnInit() {
     this.getAllTheatres();
     this.getAllCities();
     this.addTheatre=this.formBuilder.group({
-      theatreName: ['', Validators.required],
-      managerName: ['', Validators.required],
-      managerContact: ['', Validators.required],
+      theatreName: ['',  [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
+      managerName: ['',  [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
+      managerContact: ['', [Validators.required, Validators.pattern("^[6-9][0-9]{9}$")]],
       city: this.formBuilder.group({
         cityId: ['', Validators.required],
         cityName: ['']
@@ -40,8 +43,8 @@ export class AdminTheatreComponent implements OnInit {
       theatreId: [''],
       theatreName: [''],
       theatreRating:[''],
-      managerName: ['', Validators.required],
-      managerContact: ['', Validators.required],
+      managerName: ['', [Validators.required,Validators.pattern("^[a-zA-Z ]*$")]],
+      managerContact: ['', [Validators.required, Validators.pattern("[6-9][0-9]{9}")]],
       status:[''],
       city: this.formBuilder.group({
         cityId: [''],
@@ -74,7 +77,12 @@ export class AdminTheatreComponent implements OnInit {
     if(response)
     {
       this.adminService.deleteTheatreById(theatre.theatreId).subscribe(
-        data=>{this.getAllTheatres(); console.log(data);}, 
+        data=>{
+          this.adminService.getAllTheatres().subscribe(
+            data=>{this.theatres=data; console.log(this.theatres)},
+            err=>{console.log(err.error.message);}
+            );
+          console.log(data);}, 
         err=>{console.log(err.error.message);});
     }
   }
@@ -83,6 +91,7 @@ export class AdminTheatreComponent implements OnInit {
   {
     this.router.navigate(['/admin/screen', theatre.theatreId]);
   }
+
 
   addNewTheatre()
   {
@@ -98,6 +107,7 @@ export class AdminTheatreComponent implements OnInit {
       data=>{city=data;
         this.addTheatre['controls'].city['controls'].cityName.setValue(city.cityName);
         console.log(this.addTheatre.value);
+        this.addTheatre.reset;
       },
       err=>{console.log(err.error.message);}
     );
@@ -112,9 +122,14 @@ export class AdminTheatreComponent implements OnInit {
 
   updateTheatreMethod()
   {
+    this.updateSubmitted=true;
+    if(this.updateTheatre.invalid)
+    {
+      return;
+    }
     console.log(this.updateTheatre.value);
     this.adminService.updateTheatre(this.updateTheatre.value).subscribe(
-      data=>{alert("Theatre updated Successfully"); this.getAllTheatres();},
+      data=>{this.toaster.success("Theatre updated Successfully"); this.getAllTheatres(); console.log(data);},
       err=>{console.log(err.error.message);}
     );
 

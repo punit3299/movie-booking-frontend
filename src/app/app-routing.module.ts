@@ -19,8 +19,13 @@ import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.co
 import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
 import { AdminCityComponent } from './admin/admin-city/admin-city.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+
 import { ViewBookingsComponent } from './customer/view-bookings/view-bookings.component';
 import { ViewShowsComponent } from './customer/view-shows/view-shows.component';
+import { BookSeatComponent } from './customer/book-seat/book-seat.component';
+
+
+
 
 
 const routes: Routes = [
@@ -40,7 +45,7 @@ const routes: Routes = [
       { path: 'stats', component: AdminStatsComponent },
       { path: 'screen/:theatreId', component: ScreenComponent },
       { path: 'viewCustomers', component: ViewCustomersComponent },
-      { path: 'viewShows', component: AdminViewShowComponent },
+      { path: 'viewShow/:screenId/:theatreId', component: AdminViewShowComponent },
       {
         path: 'addShow/:screenId/:theatreId', component: AdminAddShowComponent,
         canDeactivate: [AddShowCanDeactivateGuardService]
@@ -60,8 +65,12 @@ const routes: Routes = [
     path: 'customer', component: CustomerComponent,
     children: [
       { path: 'customer-home', component: CustomerHomeComponent },
+
       {path :'view-bookings',component:ViewBookingsComponent},
       {path :'view-shows',component:ViewShowsComponent},
+
+      { path: 'bookTicket', component:  BookSeatComponent},
+
       { path: '**', component: CustomerHomeComponent }
     ]
   },
