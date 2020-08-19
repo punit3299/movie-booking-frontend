@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Customer } from '../../models/customer.model';
+import { Movie } from '../../models/movie.model';
+import { Observable } from 'rxjs';
+import { Show } from '../../models/show.model';
 
 @Injectable({
   providedIn: 'root'
@@ -74,5 +77,33 @@ export class AdminService {
   getAllCustomers()
   {
     return this.http.get<Customer[]>(this.url+"/customers")
+  }
+
+  addMovie(movie: Movie):Observable<any>
+  {
+    return this.http.post("http://localhost:8083/admin/movie",movie);
+  }
+
+  getAllMovies():Observable<any>
+  {
+    return this.http.get(this.url+"/movie/getAllMovies");
+  }
+
+  deleteMovie(movieId:number):Observable<any>
+  {
+    return this.http.delete(this.url+"/movie/"+movieId);
+  }
+  addShow(show:Show):Observable<any>
+  {
+    return this.http.post(this.url+"/theatre/screen/show",show);
+  }
+
+  findAllShows(theatreId:number):Observable<any>{
+    return this.http.get(this.url+"/"+theatreId+"/screen/show");
+  }
+
+  deleteShow(showId:number):Observable<any>
+  {
+    return this.http.delete(this.url+"/theatre/screen/"+showId);
   }
 }

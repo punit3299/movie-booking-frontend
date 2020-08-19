@@ -1,0 +1,18 @@
+.btn.btn-success
+{
+    background-color:#76618B ;
+    border-color: white;
+}
+
+.row-details:hover{
+    background-color:rgb(193, 190, 195) ;
+    height: 80px;
+}
+.container {
+    margin-top: 20px;
+    background-color: white; 
+    height: inherit;
+    padding-bottom: 12px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 4px 4px 4px 4px rgba(0,0.2,0.2,0.2);
+}

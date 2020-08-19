@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="row">
+    <h1>Shows</h1>
+    <p>fill details to add show</p>
+  </div>
+  <br>
+  <div class="alert alert-danger" *ngIf="showErrorInfo!=undefined">
+    {{showErrorInfo}}</div>
+
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(show)" novalidate>
+
+    <div class="form-row">
+
+      <div class="form-group col-md-4">
+        <label>Theatre Id</label>
+        <input type="number" readonly required name="thearteId1" #thearte="ngModel" 
+        [(ngModel)]="theatreId"
+          class="form-control" pattern="^(?:[1-9]|0[1-9]|10)$" placeholder="Theatre Id">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Screen Id</label>
+        <input type="number" readonly  required pattern="^[1-9][0-9]*$" placeholder="screen Id" name="screenId1"
+          class="form-control" #screen="ngModel" [(ngModel)]="screenId">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label>Movie Name</label>
+        <input type="text" required #movie="ngModel" [class.is-invalid]="movie.invalid && movie.touched"
+          pattern="[a-zA-Z 0-9]*" placeholder="Movie Name" name="movieName1" class="form-control"
+          [(ngModel)]="show.movieName">
+        <div *ngIf="movie.errors && (movie.invalid && movie.touched)">
+          <small class="text-danger" *ngIf="movie.errors.required">Movie name is required</small>
+          <small class="text-danger" *ngIf="movie.errors.pattern">Movie name must only contain alphabets and
+            numbers</small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Show Name</label>
+        <input type="text" required #showName="ngModel" [class.is-invalid]="showName.invalid && showName.touched"
+          pattern="[a-zA-Z ]*" class="form-control" placeholder="show Name" name="showName1"
+          [(ngModel)]="show.showName">
+        <div *ngIf="showName.errors && (showName.invalid && showName.touched)">
+          <small class="text-danger" *ngIf="showName.errors.required">Show name is required</small>
+          <small class="text-danger" *ngIf="showName.errors.pattern">Name should only contain alphabets</small>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Show Language</label>
+        <select class="form-control" required #showLanguage="ngModel"
+          [class.is-invalid]="showLanguage.invalid && showLanguage.touched" pattern="[a-zA-Z ]*"
+          placeholder="show Language" name="showLanguage1" [(ngModel)]="show.showLanguage">
+          <option value='Language' enabled selected hidden>Language</option>
+          <option value='Hindi'>Hindi</option>
+          <option value='English'>English</option>
+          <option value='Punjabi'>Punjabi</option>
+          <option value='Marathi'>Marathi</option>
+          <option value='kannada'>kannada</option>
+          <option value='Bhojpuri'>Bhojpuri</option>
+        </select>
+        <div *ngIf="showLanguage.errors && (showLanguage.invalid && showLanguage.touched)">
+          <small class="text-danger" *ngIf="showLanguage.errors.required">Show Language is required</small>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label>Show Start Time</label>
+        <input type="datetime-local" required #showStartTime="ngModel"
+          [class.is-invalid]="showStartTime.invalid && showStartTime.touched" class="form-control" name="showStartTime1"
+          [(ngModel)]="show.showStartTime">
+        <div *ngIf="showStartTime.errors && (showStartTime.invalid && showStartTime.touched)">
+          <small class="text-danger" *ngIf="showStartTime.errors.required">
+            Show Start Time is required</small>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Show End Time</label>
+        <input type="datetime-local" required #showEndTime="ngModel"
+          [class.is-invalid]="showEndTime.invalid && showEndTime.touched" class="form-control" name="showEndTime1"
+          [(ngModel)]="show.showEndTime">
+        <div *ngIf="showEndTime.errors && (showEndTime.invalid && showEndTime.touched)">
+          <small class="text-danger" *ngIf="showEndTime.errors.required">
+            Show End Time is required.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6">
+        <button [disabled]="userForm.form.invalid" class="btn btn-success btn-lg">
+          Add Show
+        </button>
+
+
+        <button class="btn btn-primary btn-lg" type="reset" value="Reset" style="margin-left:20px; font-weight: bold;">
+          Reset
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

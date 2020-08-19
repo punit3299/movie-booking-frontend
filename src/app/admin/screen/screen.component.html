@@ -49,7 +49,7 @@
       <th style="width: 200px;">Screen Name</th>
       <th style="width: 200px;">No Of Seats</th>
       <th style="width: 300px;">Delete/Update</th>
-
+      <th style="width: 300px;">Add Show</th>
     </tr>
   </thead>
   <tbody>
@@ -64,6 +64,8 @@
           (click)="ChangeNoOfSeat(screen.screenId,screen.noOfSeats)">
           Update Seats
         </button>
+
+        <button class="btn btn-info" (click)="add(screen.screenId)">Add</button>
       </td>
     </tr>
   </tbody>

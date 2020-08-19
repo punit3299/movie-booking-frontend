@@ -9,6 +9,12 @@ import { CustomerHomeComponent } from './customer/customer-home/customer-home.co
 import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 import { ScreenComponent } from './admin/screen/screen.component';
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
+import { AdminViewShowComponent } from './admin/admin-view-show/admin-view-show.component';
+import { AdminAddShowComponent } from './admin/admin-add-show/admin-add-show.component';
+import { AdminAddMovieComponent } from './admin/admin-add-movie/admin-add-movie.component';
+import { ViewMovieComponent } from './admin/view-movie/view-movie.component';
+import { AddMovieCanDeactivateGaurdServiceService } from './shared/services/add-movie-can-deactivate-gaurd-service.service';
+import { AddShowCanDeactivateGuardService } from './shared/services/admin/add-show-can-deactivate-guard.service';
 
 
 const routes: Routes = [
@@ -21,8 +27,13 @@ const routes: Routes = [
       { path: 'stats', component: AdminStatsComponent },
       { path: 'screen/:theatreId', component:ScreenComponent},
       { path: 'viewCustomers', component:ViewCustomersComponent},
+      {path:'viewShows',component:AdminViewShowComponent},
+      {path:'addShow/:screenId/:theatreId',component:AdminAddShowComponent,
+      canDeactivate:[AddShowCanDeactivateGuardService]},
+      {path:'addMovie', component:AdminAddMovieComponent,
+      canDeactivate:[AddMovieCanDeactivateGaurdServiceService]},
+      {path:'viewMovies',component:ViewMovieComponent},
       { path: '**', component: AdminHomeComponent }
-
     ]
   },
   {

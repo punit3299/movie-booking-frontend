@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,7 +16,16 @@ import { AdminStatsComponent } from './admin/admin-stats/admin-stats.component';
 import { ScreenComponent } from './admin/screen/screen.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ViewCustomersComponent } from './admin/view-customers/view-customers.component';
-import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe'
+import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe';
+import { AdminAddMovieComponent } from './admin/admin-add-movie/admin-add-movie.component';
+import { ViewMovieComponent } from './admin/view-movie/view-movie.component';
+import { AdminAddShowComponent } from './admin/admin-add-show/admin-add-show.component';
+import { AdminViewShowComponent } from './admin/admin-view-show/admin-view-show.component';
+import { MovieSearchPipe } from './shared/pipe/movie-search.pipe';
+import { AddMovieCanDeactivateGaurdServiceService } from './shared/services/add-movie-can-deactivate-gaurd-service.service';
+import { AddShowCanDeactivateGuardService } from './shared/services/admin/add-show-can-deactivate-guard.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,16 +41,31 @@ import { SearchCustomerPipe } from './shared/pipe/search-customer.pipe'
     AdminStatsComponent,
     ScreenComponent,
     ViewCustomersComponent,
-    SearchCustomerPipe
+    SearchCustomerPipe,
+    AdminAddMovieComponent,
+    ViewMovieComponent,
+    AdminAddShowComponent,
+    AdminViewShowComponent,
+    MovieSearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(
+    {
+      timeOut:10000,
+      positionClass:'toast-top-right',
+      preventDuplicates:true
+    })
+
   ],
-  providers: [],
+  providers: [AddMovieCanDeactivateGaurdServiceService,
+  AddShowCanDeactivateGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
