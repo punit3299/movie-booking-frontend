@@ -50,7 +50,7 @@ import { AdminCityComponent } from './admin/admin-city/admin-city.component'
     ViewMovieComponent,
     AdminAddShowComponent,
     AdminViewShowComponent,
-    MovieSearchPipe
+    MovieSearchPipe,
     AdminBookingsComponent,
     SearchBookingPipe,
     AdminTheatreComponent,
