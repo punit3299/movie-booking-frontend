@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookTicketDetails } from 'src/app/shared/models/book-ticket-details.model';
 import { BookedDetailsOfTicket } from 'src/app/shared/models/booked-details-of-ticket.model';
 import { CustomerService } from 'src/app/shared/services/customer/customer.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-book-seat',
@@ -24,8 +25,7 @@ export class BookSeatComponent implements OnInit {
   bookingTicketDetails: BookTicketDetails = new BookTicketDetails();
   bookedDetails: BookedDetailsOfTicket = new BookedDetailsOfTicket();
 
-  constructor(private customerService: CustomerService) {
-
+  constructor(private customerService: CustomerService,private toaster:ToastrService){
   }
   ngOnInit(): void {
   
@@ -128,7 +128,7 @@ export class BookSeatComponent implements OnInit {
     this.bookingTicketDetails.showDate = showdate;
     this.customerService.bookTicket(this.bookingTicketDetails).subscribe(data => {
       this.bookedDetails = data;
-
+      this.toaster.success("Your Ticket has been booked successfully");
     });
 
 
