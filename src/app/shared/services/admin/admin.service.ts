@@ -4,6 +4,9 @@ import { Customer } from '../../models/customer.model';
 import { Movie } from '../../models/movie.model';
 import { Observable } from 'rxjs';
 import { Show } from '../../models/show.model';
+import { Booking } from '../../models/booking.model';
+import { Theatre } from '../../models/theatre.model';
+import { City } from '../../models/city.model';
 
 @Injectable({
   providedIn: 'root'
@@ -105,5 +108,50 @@ export class AdminService {
   deleteShow(showId:number):Observable<any>
   {
     return this.http.delete(this.url+"/theatre/screen/"+showId);
+   getAllBookings(){
+    return this.http.get<Booking[]>(this.url+"/bookings");
+  }
+
+  getRecentThreeBookings(){
+    return this.http.get<Booking[]>(this.url+"/recentThreeBookings");
+  }
+
+  deleteBookingById(bookingId){
+    return this.http.delete(this.url+"/deleteBooking/"+bookingId);
+  }
+
+  getAllTheatres()
+  {
+    return this.http.get<Theatre[]>(this.url+"/theatre/list");
+  }
+
+  deleteTheatreById(theatreId)
+  {
+    return this.http.delete(this.url+"/theatre/"+theatreId);
+  }
+
+  getAllCities()
+  {
+    return this.http.get<City[]>(this.url+"/city/list");
+  }
+
+  addTheatre(theatre: Theatre)
+  {
+    return this.http.post(this.url+"/theatre", theatre);
+  }
+
+  getCityById(cityId)
+  {
+    return this.http.get<City>(this.url+"/city/"+cityId);
+  }
+
+  addCity(city: City)
+  {
+    return this.http.post(this.url+"/city", city);
+  }
+
+  updateTheatre(theatre: Theatre)
+  {
+    return this.http.put(this.url+"/theatre/edit/"+theatre.theatreId, theatre);
   }
 }

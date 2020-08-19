@@ -1,79 +1,191 @@
-<nav class="navbar navbar-expand-lg bg-transaparent pt-4">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Snap Your-Tickets</a>
+<nav class="navbar navbar-expand-lg bg-transaparent pt-4" id="nav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Snap Your-Tickets</a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active mx-2">
-                <a class="nav-link" href="#">Book tickets <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#">Now Playing</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#">My Bookings</a>
-            </li>
-            <li class="nav-item mx-2">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0"> 
-            <button class="btn my-2 my-sm-0" type="button" data-toggle="modal" data-target="#addMoney" id="my-balance">Wallet- Rs. 0.00</button>
-        </form>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active mx-2">
+        <a class="nav-link" href="#">Book tickets <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="#now-playing">Now Playing</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="#">My Bookings</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link" href="#bottom-navbar">Contact</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn my-2 my-sm-0" type="button" data-toggle="modal" data-target="#addMoney" id="my-balance">
+        <i class="fa fa-credit-card" aria-hidden="true"></i>
+        : Rs. {{customer.customerBalance}}</button>
+    </form>
+  </div>
 
 </nav>
 <hr class="solid">
 <nav class="navbar bg-transaparent justify-content-between">
-    <div class="social-links">
-        <a class="px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a class="px-2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        <a class="px-2"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-    </div>
-    <form class="form-inline">
-        <a href=""><i class="fa fa-user-circle mx-2" id="logOut" aria-hidden="true"></i>LogOut</a>
-    </form>
+  <div class="social-links">
+    <a class="px-2"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    <a class="px-2"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    <a class="px-2"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+  </div>
+  <form class="form-inline">
+    <a href=""><i class="fa fa-user-circle mx-2" id="logOut" aria-hidden="true"></i>LogOut</a>
+  </form>
 </nav>
 
 
- <!-- Modal -->
- <div class="modal fade" id="addMoney" role="dialog">
-    <div class="modal-dialog modal-lg">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header text-white">
-            <h4 class="modal-title">Your Transactions</h4>  
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-            <table class="table text-white">
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Rs. 200 refunded to Wallet regarding show: First Show</td>
-                    <td>2020-08-12 22:53:02.667000</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Movie Avengers:End Game booked, Price Rs. 221.0</td>
-                    <td>2020-08-12 22:53:02.667000</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Rs. 200 refunded to Wallet regarding show: First Show</td>
-                    <td>2020-08-12 22:53:02.667000</td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-warning" data-dismiss="modal">Add Money</button>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="addMoney" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header text-white">
+        <h4 class="modal-title">Your Transactions</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      
+      <div class="modal-body">
+        <table class="table text-white">
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <th scope="row">{{transaction.transactionId}}</th>
+              <td>{{transaction.transactionMessage}}</td>
+              <td>{{transaction.transactionTime}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <form [formGroup]="amountForm" class=" d-flex" action="javascript:void(0);" autocomplete="off">
+          <div class="form-group">
+            <input class="form-control mr-3" id="money" formControlName="amount" placeholder="Amount">
+            <label class="text-danger"
+              *ngIf="amountForm.get('amount').touched && amountForm.get('amount').errors?.required">
+              Required Field
+            </label>
+            <label class="text-danger"
+              *ngIf="amountForm.get('amount').touched && amountForm.get('amount').errors?.pattern">
+              Only Numbers are Allowed
+            </label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-default btn-warning" [disabled]="!amountForm.valid" data-toggle="modal"
+              data-target="#card" data-dismiss="modal">Add Money</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="modal" id="card">
+  <div class="modal-dialog">
+    <div class="modal-content text-white">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Enter You Details...</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="cardForm" class="ml-5" action="javascript:void(0);" autocomplete="off">
+          <div class="form-group">
+            <label class="mr-4">Card Number</label><br>
+            <div class="d-flex">
+              <input class="form-control" formControlName="CardNumber">
+              <i class="fa fa-credit-card-alt fa-2x ml-3" aria-hidden="true"></i>
+            </div>
+            <label class="text-danger"
+              *ngIf="cardForm.get('CardNumber').touched && cardForm.get('CardNumber').errors?.required">
+              Required Field
+            </label>
+            <label class="text-danger"
+              *ngIf="cardForm.get('CardNumber').touched && cardForm.get('CardNumber').errors?.pattern">
+              Card No. shold be 16 Digits
+            </label>
+          </div>
+          <div class="d-flex">
+            <div class="form-group">
+              <label class="mr-4">Expiry</label><br>
+              <div class="d-flex">
+                <input class="form-control" formControlName="Month" id="expiry_month" maxlength="2">
+                <span class="mx-1">/</span>
+                <input class="form-control" id="expiry_year" formControlName="Year" maxlength="2">
+                <label class="text-danger"
+                  *ngIf="cardForm.get('Month').touched && cardForm.get('Month').errors?.required">
+                  Required Field
+                </label>
+                <label class="text-danger"
+                  *ngIf="cardForm.get('Year').touched && cardForm.get('Year').errors?.required">
+                  Required Field
+                </label>
+              </div>
+            </div>
+            <div class="form-group ml-5">
+              <label>CVV</label><br>
+              <input class="form-control" id="cvv" formControlName="Cvv" maxlength="3">
+              <label class="text-danger" *ngIf="cardForm.get('Cvv').touched && cardForm.get('Cvv').errors?.required">
+                Required Field
+              </label>
+              <label class="text-danger" *ngIf="cardForm.get('Cvv').touched && cardForm.get('Cvv').errors?.pattern">
+                Cvv should be 3 digit
+              </label>
+            </div>
+            <img src="/assets/images/cvv.png" alt="cvv-image" id="cvv_image" class="ml-3">
+          </div>
+          <div class="from-group">
+            <label>Card Holder's Name</label><br>
+            <div class="d-flex">
+              <input class="form-control" formControlName="HolderName">
+              <i class="fa fa-user-secret fa-2x ml-3" aria-hidden="true"></i>
+            </div>
+            <label class="text-danger"
+              *ngIf="cardForm.get('HolderName').touched && cardForm.get('HolderName').errors?.required">
+              Required Field
+            </label>
+            <label class="text-danger"
+              *ngIf="cardForm.get('HolderName').touched && cardForm.get('HolderName').errors?.pattern">
+              Only characters allowed
+            </label>
+          </div>
+          <div class="form-group mt-2">
+            <label>PIN</label><br>
+            <div class="d-flex">
+              <input type="password" id="pin" class="form-control" formControlName="Pin">
+              <i class="fa fa-eye-slash fa-2x ml-3" aria-hidden="true"></i>
+            </div>
+            <label class="text-danger" *ngIf="cardForm.get('Pin').touched && cardForm.get('Pin').errors?.required">
+              Required Field
+            </label>
+            <label class="text-danger" *ngIf="cardForm.get('Pin').touched && cardForm.get('Pin').errors?.pattern">
+              Pin shold be 4 Digits
+            </label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" [disabled]="!cardForm.valid" (click)="addMoney()"
+              data-dismiss="modal">Proceed</button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
     </div>
   </div>
+</div>

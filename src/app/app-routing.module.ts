@@ -15,11 +15,21 @@ import { AdminAddMovieComponent } from './admin/admin-add-movie/admin-add-movie.
 import { ViewMovieComponent } from './admin/view-movie/view-movie.component';
 import { AddMovieCanDeactivateGaurdServiceService } from './shared/services/add-movie-can-deactivate-gaurd-service.service';
 import { AddShowCanDeactivateGuardService } from './shared/services/admin/add-show-can-deactivate-guard.service';
+import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
+import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
+import { AdminCityComponent } from './admin/admin-city/admin-city.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: 'home/login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent,
+    children:[   
+      { path: 'login', component: LoginComponent },
+      { path: 'sign-up', component: SignUpComponent},
+    ]
+},
+  
   {
     path: 'admin', component: AdminComponent,
     children: [
@@ -33,6 +43,9 @@ const routes: Routes = [
       {path:'addMovie', component:AdminAddMovieComponent,
       canDeactivate:[AddMovieCanDeactivateGaurdServiceService]},
       {path:'viewMovies',component:ViewMovieComponent},
+      { path: 'bookings', component: AdminBookingsComponent },
+      { path: 'theatre', component: AdminTheatreComponent},
+      { path: 'city', component: AdminCityComponent},
       { path: '**', component: AdminHomeComponent }
     ]
   },
@@ -43,8 +56,7 @@ const routes: Routes = [
       { path: '**', component: CustomerHomeComponent }
     ]
   },
-  { path: '**', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+ 
 ];
 
 @NgModule({

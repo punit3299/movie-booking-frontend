@@ -26,6 +26,10 @@ import { AddMovieCanDeactivateGaurdServiceService } from './shared/services/add-
 import { AddShowCanDeactivateGuardService } from './shared/services/admin/add-show-can-deactivate-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
+import { SearchBookingPipe } from './shared/pipe/search-booking.pipe';
+import { AdminTheatreComponent } from './admin/admin-theatre/admin-theatre.component';
+import { AdminCityComponent } from './admin/admin-city/admin-city.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,10 @@ import { ToastrModule } from 'ngx-toastr';
     AdminAddShowComponent,
     AdminViewShowComponent,
     MovieSearchPipe
+    AdminBookingsComponent,
+    SearchBookingPipe,
+    AdminTheatreComponent,
+    AdminCityComponent
   ],
   imports: [
     BrowserModule,

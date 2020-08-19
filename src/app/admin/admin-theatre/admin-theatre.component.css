@@ -1,0 +1,22 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+ }
+ 
+ .row > div[class*='col-'] {
+   display: flex;
+ }
+
+ .content
+ {
+     margin-top: 1em;
+ }
+
+ .d-flex{
+  flex-wrap: wrap;
+}
+
+.form-control{
+  width: 200px;
+}
