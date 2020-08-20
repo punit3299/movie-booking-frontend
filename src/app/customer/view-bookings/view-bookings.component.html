@@ -1,5 +1,6 @@
 <body>
     <app-top-navbar></app-top-navbar>
+<<<<<<< HEAD
     <div class="heavy-rain-gradient">
 
         <div class="text-white">
@@ -26,6 +27,44 @@
                             </strong></h6>
                         <h6 class="card-title text-c"> <strong>Total Cost- <i>{{booking.totalCost|currency:'IND'}}</i>
                             </strong></h6>
+=======
+    <div class="row heavy-rain-gradient">
+        
+        <div class="col-md-8">
+            <h4 class="h3  col-md-5"><i style="font-size-adjust:20% ;"><input id="showInput" class="input-group-text" (keyup)="applyFilter($event)" placeholder="Search "></i></h4>
+            <div *ngFor="let booking of bookings">
+                <div class="card">
+                    <div class="card-header heavy-rain-gradient">
+                        <strong>Booking Id- <i
+                                style="color:blue">{{booking.bookingId}}</i></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>Date of Booking- <i
+                                style="color:blue">{{booking.bookingDate | date:"MM/dd/yy"}}</i></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong> Movie- <i style="color:blue">{{booking.movie}}</i></strong>
+                    </div>
+                    <div class="card-body peach-gradient">
+                        <h6 class="card-title text-c"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<strong>Show Id- <i
+                                    style="color:white">{{booking.show.showId}}</i>
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seats- <i
+                                    style="color:white">{{booking.ticket.seatName}}</i>
+                                &nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Screen Name- <i
+                                    style="color:white">{{booking.ticket.screenName}}</i> </strong></h6>
+                        <h6 class="card-title text-c"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<strong>Show Start Time- <i
+                                    style="color:white">{{booking.show.showStartTime|date:'short'}}</i>
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                Theatre - <i style="color:white">{{booking.show.theatre.theatreName}}</i>
+                            </strong></h6>
+                        <h6 class="card-title text-c"> &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<strong>Total Cost- <i
+                                    style="color:white">{{booking.totalCost|currency:'IND'}}</i>
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </strong></h6>
+
+
+
+
+>>>>>>> 4b03b4bcab83643bffd4100bcc71a6f9c998c910
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                     </div>
@@ -33,7 +72,33 @@
                 </div><br>
                 <br>
             </div>
+<<<<<<< HEAD
         </div>
         </div>
+=======
+
+
+
+
+        </div>
+        <div class="col heavy-rain-gradient card card-image " id="sideBar">
+
+            <div class="text-white text-center d-flex align-items-center img-gradient-overlay py-5 px-4"
+                *ngFor="let booking of bookings;let indexOfelement=index">
+                <div style="background-image:url('/assets/images/1.jpg')">
+                    <h5 class="orange-text"><i class="fas fa-desktop"></i> Watch Movie </h5>
+                    <h3 class="card-title pt-2"><strong>This is card title</strong></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                        optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                        </p>
+                    <a class="deep-orange waves-effect waves-light"><i class="far fa-clone left"></i> View
+                        project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+>>>>>>> 4b03b4bcab83643bffd4100bcc71a6f9c998c910
 </body>
 <app-bottom-navbar></app-bottom-navbar>

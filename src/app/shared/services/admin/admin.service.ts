@@ -9,7 +9,7 @@ import { Theatre } from '../../models/theatre.model';
 import { City } from '../../models/city.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' 
 })
 export class AdminService {
 
@@ -95,19 +95,35 @@ export class AdminService {
     return this.http.get(this.url + "/" + theatreId + "/"+screenId+"/show");
   }
 
+ /**  deleteShow(showId:number):Observable<any>
+
   deleteShow(showId:number)
+
   {
     return this.http.delete(this.url+"/theatre/screen/"+showId);
     }
-
-    getAllBookings(){
+*/
+   /*   getAllBookings(){
       return this.http.get<Booking[]>(this.url+"/bookings");
     }  
 
-  getRecentThreeBookings(){
+getRecentThreeBookings(){
     return this.http.get<Booking[]>(this.url+"/recentThreeBookings");
    }
- 
+   */
+  deleteShow(showId: number): Observable<any> {
+    return this.http.delete(this.url + "/theatre/screen/" + showId);
+  }
+  getAllBookings() {
+    return this.http.get<Booking[]>(this.url + "/bookings");
+  }
+
+  getRecentThreeBookings() {
+    return this.http.get<Booking[]>(this.url + "/recentThreeBookings");
+  }
+
+
+
 
   deleteBookingById(bookingId) {
     return this.http.delete(this.url + "/deleteBooking/" + bookingId);

@@ -1,6 +1,7 @@
 body{
     background-image: url('src/assets/images/background.jpg');
     background-repeat: no-repeat;
+<<<<<<< HEAD
 }
 .card{
      background-color: rgba(12,59,87,0.7);
@@ -17,4 +18,6 @@ i{
 .card-title i{
     color: greenyellow;
     
+=======
+>>>>>>> 4b03b4bcab83643bffd4100bcc71a6f9c998c910
 }
